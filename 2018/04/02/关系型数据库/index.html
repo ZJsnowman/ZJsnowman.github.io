@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="数据分析,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="关系型数据库(MySQL)和NOSQl(mongoDB)">
+<meta name="keywords" content="数据分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库">
+<meta property="og:url" content="http://zjsnowman.com/2018/04/02/关系型数据库/index.html">
+<meta property="og:site_name" content="看见什么吃什么">
+<meta property="og:description" content="关系型数据库(MySQL)和NOSQl(mongoDB)">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-21T02:55:51.581Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库">
+<meta name="twitter:description" content="关系型数据库(MySQL)和NOSQl(mongoDB)">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'AEDNVYBRXD',
+      apiKey: '8b0fd63b8531c6673fc8ec50b80429ef',
+      indexName: 'prod_blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zjsnowman.com/2018/04/02/关系型数据库/">
+
+
+
+
+
+  <title>数据库 | 看见什么吃什么</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-104303218-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">看见什么吃什么</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zjsnowman.com/2018/04/02/关系型数据库/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张俊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="看见什么吃什么">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据库</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-02T14:49:14+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/02/关系型数据库/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/04/02/关系型数据库/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/04/02/关系型数据库/" class="leancloud_visitors" data-flag-title="数据库">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>关系型数据库(MySQL)和NOSQl(mongoDB)<a id="more"></a></p>
+<h1 id="关系型数据库"><a href="#关系型数据库" class="headerlink" title="关系型数据库"></a>关系型数据库</h1><h2 id="数据库索引的作用和原理"><a href="#数据库索引的作用和原理" class="headerlink" title="数据库索引的作用和原理"></a>数据库索引的作用和原理</h2><blockquote>
+<p>首先明白为什么索引会增加速度，DB在执行一条Sql语句的时候，默认的方式是根据搜索条件进行全表扫描，遇到配条件的就加入搜索结果集合。如果我们对某一字段增加索引，查询时就会先去索引列表中一次定位到特定值的行，大大减少遍历匹配的行数，所以能明显增加查询的速度。那么在任何时候都应该加索引么？这里有几个反例：1如果每次都需要取到所有表记录，无论如何都必须进行全表扫描了，那么是否加索引也没有意义了。2、对非唯一字段，例如“性别”这种大量重复值的字段，增加索引也没有什么意义。3、对于记录比较少的表，增加索引不会带速度的优化反而浪费了存储空间，因为索引是需要存储空间的，而且有个致命缺点是对于update/insert/delet的每次执行，字段的索引都必须重新计算更新。</p>
+</blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/27862119" target="_blank" rel="noopener">查看全部</a></p>
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><p><a href="https://leetcode-cn.com/problemset/database/" target="_blank" rel="noopener">leetcode-cn</a></p>
+<p><a href="https://juejin.im/post/5b2855bf6fb9a00e6678a42e" target="_blank" rel="noopener">练习资源一</a></p>
+<h2 id="汇总数据"><a href="#汇总数据" class="headerlink" title="汇总数据"></a>汇总数据</h2><ul>
+<li>AVG忽略值为NULl的行</li>
+<li>Count有两种用法.count(*)统计所有行，不管行中具体的值，空值也算。count(column),对特定列进行计数，忽略NULL值</li>
+<li>MIN/MAX除了可以返回最大最小数值，也可以返回最大最小日期，甚至包括非数值，这个可以自己探索，这两个都会忽略NULL值</li>
+<li>AVG( DISTINCT columns)和Count(DISTINCT columns) 加上DISTINCT可以统计该列不同值得聚合结果</li>
+<li>AVG,MIN,MAX,COUNT,SUM 这5个聚集函数非常高效，直接使用这个比在应用中计算高效的多。</li>
+</ul>
+<h2 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h2><ul>
+<li><p>如果有分组，也就是有Group By 语句则只能用Having，因为只有Having才能过滤分组。</p>
+</li>
+<li><p>Having是在分组后进行过滤，Where是在分组前进行过滤。Having是在<strong>组</strong>这个级别过滤，where是在<strong>行</strong>这个级别过滤</p>
+</li>
+<li><p>Group By 子句必须出现在where子句之后，order by 子句之前</p>
+</li>
+</ul>
+<h2 id="Python-读写-MySQL"><a href="#Python-读写-MySQL" class="headerlink" title="Python 读写 MySQL"></a>Python 读写 MySQL</h2><p>通过<code>PyMySQL</code>来完成对MySQL的操作。<a href="https://github.com/PyMySQL/PyMySQL" target="_blank" rel="noopener">官网地址</a></p>
+<h2 id="Pandas-读写MySQL"><a href="#Pandas-读写MySQL" class="headerlink" title="Pandas 读写MySQL"></a>Pandas 读写MySQL</h2><p>pandas 可以DataFrame的各种函数，可以更加方面的来完成各种数据处理工作。<br>常用的函数如下：</p>
+<ul>
+<li><code>pandas.read_sql_table</code> 将表读成一个DF</li>
+<li><code>pandas.read_sql_query</code> 用SQL语句的查询结果生成一个DF</li>
+<li><code>DataFrame.to_sql</code> 将DF写入数据库中</li>
+</ul>
+<p>上述工作需要依赖<code>SQLAlchemy</code>.具体可以参考<a href="https://docs.sqlalchemy.org/en/latest/" target="_blank" rel="noopener">官网</a>,SQLAlchemy是Python经典的ORM工具，具体驱动还需要依赖PyMySQL。</p>
+<h3 id="编码问题"><a href="#编码问题" class="headerlink" title="编码问题"></a>编码问题</h3><p><a href="https://docs.sqlalchemy.org/en/latest/dialects/mysql.html#unicode" target="_blank" rel="noopener">在创建engine的时候可以指定charset，具体看官网链接</a></p>
+<h1 id="NOSQL"><a href="#NOSQL" class="headerlink" title="NOSQL"></a>NOSQL</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="https://docs.mongodb.com/manual/administration/install-community/" target="_blank" rel="noopener">参考官网</a><br>MacOS可以直接通过 HomeBrew 安装.具体参考上面链接</p>
+<h2 id="The-Little-MongoDB-Book"><a href="#The-Little-MongoDB-Book" class="headerlink" title="The Little MongoDB Book"></a>The Little MongoDB Book</h2><p><a href="https://github.com/ilivebox/the-little-mongodb-book/blob/master/zh-cn/mongodb.markdown" target="_blank" rel="noopener">快速学习mongoDB 的好书 The Little MongoDB Book</a></p>
+<h2 id="mongoDB-导入-csv"><a href="#mongoDB-导入-csv" class="headerlink" title="mongoDB 导入 csv"></a>mongoDB 导入 csv</h2><ol>
+<li>将数据上传到 mongoDB 服务器上</li>
+<li>执行下面命令导入数据</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mongoimport --host 172.30.1.38 --port 27017  -d &lt;databaseName&gt; -c &lt;collectionName&gt; --type csv --headerline  --file  &lt;csvName&gt;  (不需要&lt;&gt;)</span><br><span class="line">d:数据库名</span><br><span class="line"></span><br><span class="line">c:collection名</span><br><span class="line"></span><br><span class="line">type:文件类型，指明是csv文件</span><br><span class="line"></span><br><span class="line">headline:指明第一行是列名，不需要导入</span><br><span class="line"></span><br><span class="line">file:csv文件路径及名字</span><br><span class="line"></span><br><span class="line">更多参数请执行 mongoimport --help查看</span><br></pre></td></tr></table></figure>
+<p><em>如果excel里面有中文、特殊符号，会抛出以下异常：<code>exception:Invalid UTF8 character detected</code><br>此时，执行mongoimport命令前，您需要先将该csv文件编码转为 utf-8<br>方法：将 sample.csv 上传到 Linux系统，然后利用iconv 命令转换编码：<br><code>iconv -f gbk -t UTF-8 sample.csv  &gt; sample.csv</code></em></p>
+<h2 id="PyMongo基本操作-Python-操作-MongoDB"><a href="#PyMongo基本操作-Python-操作-MongoDB" class="headerlink" title="PyMongo基本操作(Python 操作 MongoDB)"></a>PyMongo基本操作(Python 操作 MongoDB)</h2><p><a href="http://api.mongodb.com/python/current/tutorial.html" target="_blank" rel="noopener">PyMongo tutorial</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据分析/" rel="tag"># 数据分析</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/29/常见机器学习概念/" rel="next" title="常见数据挖掘术语解释">
+                <i class="fa fa-chevron-left"></i> 常见数据挖掘术语解释
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/02/算法性能度量/" rel="prev" title="机器学习算法性能度量">
+                机器学习算法性能度量 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="张俊">
+          <p class="site-author-name" itemprop="name">张俊</p>
+           
+              <p class="site-description motion-element" itemprop="description">过一种有价值的中产阶级生活</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ZJsnowman" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/zjsnowman" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/ZJsnowman/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-quora"></i>
+                  
+                    
+                      知乎
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关系型数据库"><span class="nav-number">1.</span> <span class="nav-text">关系型数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库索引的作用和原理"><span class="nav-number">1.1.</span> <span class="nav-text">数据库索引的作用和原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实战"><span class="nav-number">1.2.</span> <span class="nav-text">实战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#汇总数据"><span class="nav-number">1.3.</span> <span class="nav-text">汇总数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分组"><span class="nav-number">1.4.</span> <span class="nav-text">分组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-读写-MySQL"><span class="nav-number">1.5.</span> <span class="nav-text">Python 读写 MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pandas-读写MySQL"><span class="nav-number">1.6.</span> <span class="nav-text">Pandas 读写MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#编码问题"><span class="nav-number">1.6.1.</span> <span class="nav-text">编码问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NOSQL"><span class="nav-number">2.</span> <span class="nav-text">NOSQL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Little-MongoDB-Book"><span class="nav-number">2.2.</span> <span class="nav-text">The Little MongoDB Book</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mongoDB-导入-csv"><span class="nav-number">2.3.</span> <span class="nav-text">mongoDB 导入 csv</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PyMongo基本操作-Python-操作-MongoDB"><span class="nav-number">2.4.</span> <span class="nav-text">PyMongo基本操作(Python 操作 MongoDB)</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张俊</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://ZJsnowman.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://zjsnowman.com/2018/04/02/关系型数据库/';
+          this.page.identifier = '2018/04/02/关系型数据库/';
+          this.page.title = '数据库';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ZJsnowman.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("1m1SVHmQhKszN3lTe3rKgo87-gzGzoHsz", "i9e5m0oHfrGz1EzsarxpYbh2");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="数据分析,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="学习 python 一些笔记">
+<meta name="keywords" content="数据分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python 学习笔记">
+<meta property="og:url" content="http://zjsnowman.com/2017/09/25/python-学习笔记/index.html">
+<meta property="og:site_name" content="看见什么吃什么">
+<meta property="og:description" content="学习 python 一些笔记">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-21T02:55:51.579Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python 学习笔记">
+<meta name="twitter:description" content="学习 python 一些笔记">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'AEDNVYBRXD',
+      apiKey: '8b0fd63b8531c6673fc8ec50b80429ef',
+      indexName: 'prod_blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zjsnowman.com/2017/09/25/python-学习笔记/">
+
+
+
+
+
+  <title>python 学习笔记 | 看见什么吃什么</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-104303218-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">看见什么吃什么</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zjsnowman.com/2017/09/25/python-学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张俊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="看见什么吃什么">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python 学习笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-25T17:04:53+08:00">
+                2017-09-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/09/25/python-学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/09/25/python-学习笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/09/25/python-学习笔记/" class="leancloud_visitors" data-flag-title="python 学习笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>学习 python 一些笔记<a id="more"></a></p>
+<h1 id="获取对象信息"><a href="#获取对象信息" class="headerlink" title="获取对象信息"></a>获取对象信息</h1><p>使用type(obj)即可</p>
+<p><a href="https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/0013868200480395edcd8f8987a4871b01b5e340bbb8223000" target="_blank" rel="noopener">详细点击</a></p>
+<h1 id="带下划线的变量和函数"><a href="#带下划线的变量和函数" class="headerlink" title="带下划线的变量和函数"></a>带下划线的变量和函数</h1><p>前后双下划线的函数,比如<strong>_<em>init_</em></strong></p>
+<p>这种用法表示Python中特殊的方法名。其实，这只是一种惯例，对Python系统来说，这将确保不会与用户自定义的名称冲突</p>
+<p><a href="http://python.jobbole.com/81129/" target="_blank" rel="noopener">详细点击</a></p>
+<h1 id="Map使用备注"><a href="#Map使用备注" class="headerlink" title="Map使用备注"></a>Map使用备注</h1><p><a href="http://zjsnowman.com/local/python%E5%AD%97%E5%85%B8%E4%BD%BF%E7%94%A8%E5%A4%87%E6%B3%A8.html">点我查看</a></p>
+<h1 id="Python中的下划线"><a href="#Python中的下划线" class="headerlink" title="Python中的下划线"></a>Python中的下划线</h1><p><a href="http://zjsnowman.com/local/Python%E4%B8%AD%E7%9A%84%E4%B8%8B%E5%88%92%E7%BA%BF">点我查看</a></p>
+<h1 id="Python-文件读写-操作文件和目录-序列化"><a href="#Python-文件读写-操作文件和目录-序列化" class="headerlink" title="Python 文件读写,操作文件和目录,序列化"></a>Python 文件读写,操作文件和目录,序列化</h1><p>廖老师的网站</p>
+<h1 id="Python-高级特性"><a href="#Python-高级特性" class="headerlink" title="Python 高级特性"></a>Python 高级特性</h1><h2 id="Python列表生成式"><a href="#Python列表生成式" class="headerlink" title="Python列表生成式"></a>Python列表生成式</h2><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; [x * x for x in range(1, 11)]</span><br><span class="line">[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</span><br></pre></td></tr></table></figure>
+<p>写列表生成式时，把要生成的元素x * x放到前面，后面跟for循环，就可以把list创建出来.</p>
+</blockquote>
+<p>再次基础上可以在对<code>x</code>进行筛选<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; [x * x for x in range(1, 11) if x % 2 == 0]</span><br><span class="line">[4, 16, 36, 64, 100]</span><br></pre></td></tr></table></figure></p>
+<p>使用多个变量生成 list<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; d = &#123;&apos;x&apos;: &apos;A&apos;, &apos;y&apos;: &apos;B&apos;, &apos;z&apos;: &apos;C&apos; &#125;</span><br><span class="line">&gt;&gt;&gt; [k + &apos;=&apos; + v for k, v in d.items()]</span><br><span class="line">[&apos;y=B&apos;, &apos;x=A&apos;, &apos;z=C&apos;]</span><br></pre></td></tr></table></figure></p>
+<p>多次循环<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; [m + n for m in &apos;ABC&apos; for n in &apos;XYZ&apos;]</span><br><span class="line">[&apos;AX&apos;, &apos;AY&apos;, &apos;AZ&apos;, &apos;BX&apos;, &apos;BY&apos;, &apos;BZ&apos;, &apos;CX&apos;, &apos;CY&apos;, &apos;CZ&apos;]</span><br></pre></td></tr></table></figure></p>
+<h2 id="迭代器和生成器"><a href="#迭代器和生成器" class="headerlink" title="迭代器和生成器"></a>迭代器和生成器</h2><p><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143178254193589df9c612d2449618ea460e7a672a366000" target="_blank" rel="noopener">廖老师-高级特性</a></p>
+<h1 id="Python-yidld-使用"><a href="#Python-yidld-使用" class="headerlink" title="Python yidld 使用"></a>Python yidld 使用</h1><p><a href="https://www.liaoxuefeng.com/article/001373892916170b88313a39f294309970ad53fc6851243000" target="_blank" rel="noopener">https://www.liaoxuefeng.com/article/001373892916170b88313a39f294309970ad53fc6851243000</a></p>
+<h1 id="Python-数据解析"><a href="#Python-数据解析" class="headerlink" title="Python 数据解析"></a>Python 数据解析</h1><h2 id="Xml-解析"><a href="#Xml-解析" class="headerlink" title="Xml 解析"></a>Xml 解析</h2><p><a href="http://zjsnowman.com/local/Xml%E8%A7%A3%E6%9E%90">点我查看</a></p>
+<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><ul>
+<li>python原生字符串</li>
+</ul>
+<p>字符串无需再赘言，原生字符串可以在字符串之前加上一个r或者R来表示，例如r’\nThis is a raw string’。原生字符串不会对字符串进行任何特殊处理，例如r’\nThis is a raw string’中的\n不会被转义处理，而是直接代表\和n两个字符。</p>
+<p><em>这个特性在正则表达式中非常好用,来应对反斜杠问题</em></p>
+<h2 id="Python-爬虫"><a href="#Python-爬虫" class="headerlink" title="Python 爬虫"></a>Python 爬虫</h2><p><a href="http://wiki.jikexueyuan.com/project/python-crawler-guide/" target="_blank" rel="noopener">参考这个</a></p>
+<h3 id="关于正则表达式贪婪与非贪婪"><a href="#关于正则表达式贪婪与非贪婪" class="headerlink" title="关于正则表达式贪婪与非贪婪"></a>关于正则表达式贪婪与非贪婪</h3><p><a href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p07_specify_regexp_for_shortest_match.html" target="_blank" rel="noopener">参考这个</a><br>这里非贪婪实际上就是最短匹配模式.贪婪则是尽可能长长的匹配.把这两者和路径长度联系起来理解</p>
+<h3 id="Python-头部声明-编码声明"><a href="#Python-头部声明-编码声明" class="headerlink" title="Python 头部声明,编码声明"></a>Python 头部声明,编码声明</h3><p><a href="https://www.python.org/dev/peps/pep-0263/" target="_blank" rel="noopener">https://www.python.org/dev/peps/pep-0263/</a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">__author__ = <span class="string">'ZJsnowman'</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br></pre></td></tr></table></figure></p>
+<p>在Pycharm 中文件最开头需要加入上述语句,不然中文注释会有问题.</p>
+<h3 id="Python-编码问题"><a href="#Python-编码问题" class="headerlink" title="Python 编码问题"></a>Python 编码问题</h3><ul>
+<li>ASCII，Unicode 和 UTF-8 之间的关系</li>
+</ul>
+<p>记住一句话:UTF-8 是 Unicode 的实现方式之一。<br>剩下的参考<a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html" target="_blank" rel="noopener">这个</a></p>
+<ul>
+<li>Python 编码最佳实践</li>
+</ul>
+<p><a href="http://wklken.me/posts/2013/08/31/python-extra-coding-intro.html" target="_blank" rel="noopener">参考这个</a></p>
+<p>总结一下就是:</p>
+<ol>
+<li>Decode early</li>
+<li>Unicode everywhere</li>
+<li>Encode later</li>
+</ol>
+<p>字符串编码前缀</p>
+<ul>
+<li>r”xxx”  表示xxx 中的内容不需要转义.比如\n,\t都不需要转义成换行,制表.比如<code>r&quot;.*\[(.*?)\] +- +(.*)&quot;</code></li>
+<li>f”xxx”   表示xxx中有表达式,会通过表示式的值填充进去<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">base_filename, file_extension = os.path.splitext(filename)</span><br><span class="line">thumbnail_filename = <span class="string">f"<span class="subst">&#123;base_filename&#125;</span>_thumbnail<span class="subst">&#123;file_extension&#125;</span>"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h2><p>python 有四种参数类型</p>
+<ul>
+<li>必选参数</li>
+<li>默认参数</li>
+<li>可变参数</li>
+<li>关键字参数</li>
+</ul>
+<p>参数定义的顺序必须是：必选参数、默认参数、可变参数和关键字参数。</p>
+<p><strong>默认参数必须指向不变对象！</strong></p>
+<p>*args是可变参数，args接收的是一个tuple<br>Python允许你在list或tuple前面加一个*号，把list或tuple的元素变成可变参数传进去：</p>
+<p>*<em>kw是关键字参数，kw接收的是一个dict。<br>Python允许你在dict前面加两个*</em>号，把dict的元素变成关键字参数传进去：</p>
+<p><a href="https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001374738449338c8a122a7f2e047899fc162f4a7205ea3000" target="_blank" rel="noopener">参考廖老师的教程</a></p>
+<h1 id="pip-安装指定版本包-并显示所有可选包"><a href="#pip-安装指定版本包-并显示所有可选包" class="headerlink" title="pip 安装指定版本包,并显示所有可选包"></a>pip 安装指定版本包,并显示所有可选包</h1><p>For pip &gt;= 9.0 use<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ pip install pylibmc==</span><br><span class="line">Collecting pylibmc==</span><br><span class="line">  Could not find a version that satisfies the requirement pylibmc== (from</span><br><span class="line">  versions: 0.2, 0.3, 0.4, 0.5.1, 0.5.2, 0.5.3, 0.5.4, 0.5.5, 0.5, 0.6.1, 0.6,</span><br><span class="line">  0.7.1, 0.7.2, 0.7.3, 0.7.4, 0.7, 0.8.1, 0.8.2, 0.8, 0.9.1, 0.9.2, 0.9,</span><br><span class="line">  1.0-alpha, 1.0-beta, 1.0, 1.1.1, 1.1, 1.2.0, 1.2.1, 1.2.2, 1.2.3, 1.3.0)</span><br><span class="line">No matching distribution found for pylibmc==</span><br><span class="line">– all the available versions will be printed without actually downloading or installing any additional packages.</span><br></pre></td></tr></table></figure></p>
+<p>For pip &lt; 9.0 use</p>
+<p><code>pip install pylibmc==blork</code></p>
+<p>where blork can be any string that is not likely to be an install candidate.</p>
+<h1 id="Python-中的-if-name-‘-main-‘-该如何理解"><a href="#Python-中的-if-name-‘-main-‘-该如何理解" class="headerlink" title="Python 中的 if _name_ == ‘__main\‘ 该如何理解"></a>Python 中的 if _<em>name_<em> == ‘__main\</em></em>‘ 该如何理解</h1><p><strong>如果模块是被直接运行的，则代码块被运行，如果模块是被导入的，则代码块不被运行。</strong><br>具体参考<br> <a href="http://blog.konghy.cn/2017/04/24/python-entry-program/" target="_blank" rel="noopener">http://blog.konghy.cn/2017/04/24/python-entry-program/</a></p>
+<h1 id="python-可变与不可变对象"><a href="#python-可变与不可变对象" class="headerlink" title="python 可变与不可变对象"></a>python 可变与不可变对象</h1><p>可变对象: dict,list<br>不可变对象: str,tuple,float,int</p>
+<ul>
+<li>对可变对象进行操作,是会改变具体内容的</li>
+<li>对不可变对象进行操作,内容是不会改变的,所以需要改变的后的结果需要重新复制,例如<code>str.replace()</code></li>
+</ul>
+<p><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143167793538255adf33371774853a0ef943280573f4d000" target="_blank" rel="noopener">具体区别</a></p>
+<h1 id="python注意点"><a href="#python注意点" class="headerlink" title="python注意点"></a>python注意点</h1><p>只有1个元素的tuple定义时必须加一个逗号,来消除歧义：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t = (<span class="number">1</span>,)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t</span><br><span class="line">(<span class="number">1</span>,)</span><br></pre></td></tr></table></figure>
+<p><code>python 整数加一个小数点 比如:0.</code> 加一个小数点，这也是一种转换为浮点型的方式，作用等于float(0)</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p> <a href="http://yunjianfei.iteye.com/blog/2186092" target="_blank" rel="noopener">这个讲的比较好,帮助理解</a><br> 具体使用暂时还比较少</p>
+<h2 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h2><p> <a href="https://foofish.net/python-decorator.html" target="_blank" rel="noopener">理解 Python 装饰器看这一篇就够了</a></p>
+<h2 id="Python-is-None-VS-None"><a href="#Python-is-None-VS-None" class="headerlink" title="Python is None VS == None"></a>Python is None VS == None</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">is always returns True if it compares the same object instance</span><br><span class="line"></span><br><span class="line">Whereas == is ultimately determined by the __eq__() method</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; class foo(object):</span><br><span class="line">def __eq__(self, other):</span><br><span class="line">    return True</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; f = foo()</span><br><span class="line">&gt;&gt;&gt; f == None</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; f is None</span><br><span class="line">False</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据分析/" rel="tag"># 数据分析</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/25/jupyter-使用备注/" rel="next" title="jupyter 使用备注">
+                <i class="fa fa-chevron-left"></i> jupyter 使用备注
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/26/Android-四大组件之广播/" rel="prev" title="Android 四大组件之广播">
+                Android 四大组件之广播 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="张俊">
+          <p class="site-author-name" itemprop="name">张俊</p>
+           
+              <p class="site-description motion-element" itemprop="description">过一种有价值的中产阶级生活</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">74</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ZJsnowman" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/zjsnowman" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/ZJsnowman/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-quora"></i>
+                  
+                    
+                      知乎
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#获取对象信息"><span class="nav-number">1.</span> <span class="nav-text">获取对象信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#带下划线的变量和函数"><span class="nav-number">2.</span> <span class="nav-text">带下划线的变量和函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Map使用备注"><span class="nav-number">3.</span> <span class="nav-text">Map使用备注</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python中的下划线"><span class="nav-number">4.</span> <span class="nav-text">Python中的下划线</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-文件读写-操作文件和目录-序列化"><span class="nav-number">5.</span> <span class="nav-text">Python 文件读写,操作文件和目录,序列化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-高级特性"><span class="nav-number">6.</span> <span class="nav-text">Python 高级特性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python列表生成式"><span class="nav-number">6.1.</span> <span class="nav-text">Python列表生成式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#迭代器和生成器"><span class="nav-number">6.2.</span> <span class="nav-text">迭代器和生成器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-yidld-使用"><span class="nav-number">7.</span> <span class="nav-text">Python yidld 使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-数据解析"><span class="nav-number">8.</span> <span class="nav-text">Python 数据解析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Xml-解析"><span class="nav-number">8.1.</span> <span class="nav-text">Xml 解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python"><span class="nav-number">8.2.</span> <span class="nav-text">Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-爬虫"><span class="nav-number">8.3.</span> <span class="nav-text">Python 爬虫</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于正则表达式贪婪与非贪婪"><span class="nav-number">8.3.1.</span> <span class="nav-text">关于正则表达式贪婪与非贪婪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-头部声明-编码声明"><span class="nav-number">8.3.2.</span> <span class="nav-text">Python 头部声明,编码声明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-编码问题"><span class="nav-number">8.3.3.</span> <span class="nav-text">Python 编码问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数参数"><span class="nav-number">8.4.</span> <span class="nav-text">函数参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pip-安装指定版本包-并显示所有可选包"><span class="nav-number">9.</span> <span class="nav-text">pip 安装指定版本包,并显示所有可选包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-中的-if-name-‘-main-‘-该如何理解"><span class="nav-number">10.</span> <span class="nav-text">Python 中的 if _name_ == ‘__main\‘ 该如何理解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python-可变与不可变对象"><span class="nav-number">11.</span> <span class="nav-text">python 可变与不可变对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#python注意点"><span class="nav-number">12.</span> <span class="nav-text">python注意点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">12.1.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#装饰器"><span class="nav-number">12.2.</span> <span class="nav-text">装饰器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-is-None-VS-None"><span class="nav-number">12.3.</span> <span class="nav-text">Python is None VS == None</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张俊</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://ZJsnowman.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://zjsnowman.com/2017/09/25/python-学习笔记/';
+          this.page.identifier = '2017/09/25/python-学习笔记/';
+          this.page.title = 'python 学习笔记';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ZJsnowman.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("1m1SVHmQhKszN3lTe3rKgo87-gzGzoHsz", "i9e5m0oHfrGz1EzsarxpYbh2");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
