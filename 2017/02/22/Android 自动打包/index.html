@@ -84,6 +84,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="看见什么吃什么" type="application/atom+xml">
+
 
 
 
@@ -427,7 +429,7 @@
 <li>构建采用 gradle。通过 gradle wrapper 的方式。注意勾选一下    Make gradlew executable<br><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-24-043129.jpg" alt></li>
 </ol>
 <h3 id="配置编译环境"><a href="#配置编译环境" class="headerlink" title="配置编译环境"></a>配置编译环境</h3><p>配置 Android sdk环境，需要配置一下ANDROID_HOME(没有配置 Jenkins 会告诉需要你配置)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Android Dev</span><br><span class="line">export ANDROID_HOME="/Users/zhangjun/Library/Android/sdk"</span><br><span class="line">export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Android Dev</span></span><br><span class="line">export ANDROID_HOME="/Users/zhangjun/Library/Android/sdk"</span><br><span class="line">export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH</span><br></pre></td></tr></table></figure>
 <h3 id="配置gitlab-hook"><a href="#配置gitlab-hook" class="headerlink" title="配置gitlab hook"></a>配置gitlab hook</h3><p>意思就是说当 gitlab 上有新的提交或者其他条件的时候会触发 jenkins 编译。具体配置可以参考 gitlab hook 插件说明。我这边是在 gitlab - prpject - setting - webHooks中添加一个 url。具体如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">http://your-jenkins-server/gitlab/build_now</span><br></pre></td></tr></table></figure></p>
 <p>这里需要注意，如果你 jenkins具体项目编译配置中配置了具体的分支，那么只有你在配置的分支上 push 你代码才能触发钩子。test hook 默认是在 master 上触发的。这点需要注意。举个例子：<br>假如你 Jenkins 配置中是编译 dev 分支的，那么 test hook 是不会生效的。必须手动在 dev 分支上提交一个代码才能触发自动编译。</p>
 <h3 id="代理设置"><a href="#代理设置" class="headerlink" title="代理设置"></a>代理设置</h3><p>这是我国的一个特色。考虑到一些包下载不下来，所以需要自行配置代理，最好是 http 代理。我这边是 mac。截图如下。<br><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-24-043131.jpg" alt><br>另外这里需要注意一下。忽略主机之间用逗号(,)而不是中文的顿号（、）。</p>
@@ -579,6 +581,13 @@
 
         </nav>
 
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">
