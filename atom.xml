@@ -314,9 +314,9 @@
     <link href="http://zjsnowman.com/2018/06/01/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E6%9E%90/"/>
     <id>http://zjsnowman.com/2018/06/01/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E6%9E%90/</id>
     <published>2018-06-01T08:48:23.000Z</published>
-    <updated>2019-10-21T02:55:51.582Z</updated>
+    <updated>2020-01-09T11:22:12.546Z</updated>
     
-    <content type="html"><![CDATA[<p>时间序列分析<a id="more"></a></p><h1 id="自相关函数-ACF-和偏自相关系数-PACF"><a href="#自相关函数-ACF-和偏自相关系数-PACF" class="headerlink" title="自相关函数(ACF )和偏自相关系数(PACF)"></a>自相关函数(ACF )和偏自相关系数(PACF)</h1><p><a href="https://www.ibm.com/support/knowledgecenter/zh/SS3RA7_sub/modeler_mainhelp_client_ddita/components/dt/timeseries_acf_pacf.html" target="_blank" rel="noopener">参考这个解释</a></p><h1 id="帮助理解"><a href="#帮助理解" class="headerlink" title="帮助理解"></a>帮助理解</h1><p>&lt;&lt;时间序列分析基于 R&gt;&gt;第40页对北京市城市居民定期存储所占比例的平稳性与纯随机性进行检验<br>通过这个例子帮助理解</p>]]></content>
+    <content type="html"><![CDATA[<p>时间序列分析<a id="more"></a></p><p>参考链接：</p><ol><li><a href="https://facebook.github.io/prophet/docs/quick_start.html" target="_blank" rel="noopener">Facebook prophet</a></li><li><a href="https://zhuanlan.zhihu.com/p/52330017" target="_blank" rel="noopener">Facebook 时间序列预测算法 Prophet 的研究</a></li></ol>]]></content>
     
     <summary type="html">
     
