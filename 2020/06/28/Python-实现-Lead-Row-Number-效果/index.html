@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="数据分析,">
 
 
 
@@ -96,19 +96,22 @@
 
 
 
-<meta name="description" content="分析大中华区截止到2018年12月31号186家独角兽公司，在求职季但愿能够帮到你。不用怀疑，都是带交互的，鼠标到处点点">
+<meta name="description" content="Oracle 非常好用的分析函数(窗口函数)在 Pandas 没有直接对应的函数,不够可以很方便的实现,本文重点实现 Lead和Row_number">
+<meta name="keywords" content="数据分析">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2019 寻找潜在工作指南">
-<meta property="og:url" content="http://zjsnowman.com/2019/02/19/独角兽分析/index.html">
+<meta property="og:title" content="Python 实现 Lead&#x2F;Row_Number 效果">
+<meta property="og:url" content="http://zjsnowman.com/2020/06/28/Python-实现-Lead-Row-Number-效果/index.html">
 <meta property="og:site_name" content="看见什么吃什么">
-<meta property="og:description" content="分析大中华区截止到2018年12月31号186家独角兽公司，在求职季但愿能够帮到你。不用怀疑，都是带交互的，鼠标到处点点">
+<meta property="og:description" content="Oracle 非常好用的分析函数(窗口函数)在 Pandas 没有直接对应的函数,不够可以很方便的实现,本文重点实现 Lead和Row_number">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://public.tableau.com/static/images/Un/UnicornAnalysisForWork/sheet1/1_rss.png">
-<meta property="og:updated_time" content="2019-10-21T02:55:51.585Z">
+<meta property="og:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/20200628174739.png">
+<meta property="og:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/20200628175549.png">
+<meta property="og:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/20200628175843.png">
+<meta property="og:updated_time" content="2020-06-28T10:02:33.314Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2019 寻找潜在工作指南">
-<meta name="twitter:description" content="分析大中华区截止到2018年12月31号186家独角兽公司，在求职季但愿能够帮到你。不用怀疑，都是带交互的，鼠标到处点点">
-<meta name="twitter:image" content="https://public.tableau.com/static/images/Un/UnicornAnalysisForWork/sheet1/1_rss.png">
+<meta name="twitter:title" content="Python 实现 Lead&#x2F;Row_Number 效果">
+<meta name="twitter:description" content="Oracle 非常好用的分析函数(窗口函数)在 Pandas 没有直接对应的函数,不够可以很方便的实现,本文重点实现 Lead和Row_number">
+<meta name="twitter:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/20200628174739.png">
 
 
 
@@ -137,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://zjsnowman.com/2019/02/19/独角兽分析/">
+  <link rel="canonical" href="http://zjsnowman.com/2020/06/28/Python-实现-Lead-Row-Number-效果/">
 
 
 
 
 
-  <title>2019 寻找潜在工作指南 | 看见什么吃什么</title>
+  <title>Python 实现 Lead/Row_Number 效果 | 看见什么吃什么</title>
   
 
 
@@ -323,7 +326,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://zjsnowman.com/2019/02/19/独角兽分析/">
+    <link itemprop="mainEntityOfPage" href="http://zjsnowman.com/2020/06/28/Python-实现-Lead-Row-Number-效果/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张俊">
@@ -340,7 +343,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">2019 寻找潜在工作指南</h1>
+          <h1 class="post-title" itemprop="name headline">Python 实现 Lead/Row_Number 效果</h1>
         
 
         <div class="post-meta">
@@ -352,8 +355,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-19T15:03:24+08:00">
-                2019-02-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-28T17:44:02+08:00">
+                2020-06-28
               </time>
             
 
@@ -371,8 +374,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/02/19/独角兽分析/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/19/独角兽分析/" itemprop="commentCount"></span>
+                <a href="/2020/06/28/Python-实现-Lead-Row-Number-效果/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/06/28/Python-实现-Lead-Row-Number-效果/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -380,7 +383,7 @@
 
           
           
-             <span id="/2019/02/19/独角兽分析/" class="leancloud_visitors" data-flag-title="2019 寻找潜在工作指南">
+             <span id="/2020/06/28/Python-实现-Lead-Row-Number-效果/" class="leancloud_visitors" data-flag-title="Python 实现 Lead/Row_Number 效果">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -411,8 +414,14 @@
       
 
       
-        <p>分析大中华区截止到2018年12月31号186家独角兽公司，在求职季但愿能够帮到你。不用怀疑，都是带交互的，鼠标到处点点<a id="more"></a></p>
-<p><div class="tableauPlaceholder" id="viz1550560217499" style="position: relative"><noscript><a href="#"><img alt=" " src="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Un&#47;UnicornAnalysisForWork&#47;sheet1&#47;1_rss.png" style="border: none"></a></noscript><object class="tableauViz" style="display:none;"><param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F"> <param name="embed_code_version" value="3"> <param name="path" value="views&#47;UnicornAnalysisForWork&#47;sheet1?:embed=y&amp;:display_count=y&amp;publish=yes"> <param name="toolbar" value="no'/"><param name="showShareOptions" value="false"><param name="static_image" value="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Un&#47;UnicornAnalysisForWork&#47;sheet1&#47;1.png"> <param name="animate_transition" value="yes"><param name="display_static_image" value="yes"><param name="display_spinner" value="yes"><param name="display_overlay" value="yes"><param name="display_count" value="yes"><param name="filter" value="publish=yes"></object></div>                <script type="text/javascript">                    var divElement = document.getElementById('viz1550560217499');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='1627px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='1627px';} else { vizElement.style.width='100%';vizElement.style.height='1177px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script></p>
+        <p>Oracle 非常好用的分析函数(窗口函数)在 Pandas 没有直接对应的函数,不够可以很方便的实现,本文重点实现 <code>Lead</code>和<code>Row_number</code><a id="more"></a></p>
+<h1 id="文件下载"><a href="#文件下载" class="headerlink" title="文件下载"></a>文件下载</h1><p><a href="/download/traffic_etl.zip">点击下载文件</a></p>
+<h1 id="Lead-实现"><a href="#Lead-实现" class="headerlink" title="Lead 实现"></a>Lead 实现</h1><p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/20200628174739.png" alt></p>
+<p>这里是一份交通违法数据,每个司机会对用多条记录,一般我们拿到的业务原始表就是这样的结构.如果我要分析两个罚款时间的间隔,在 Oracle 中通过 <code>lead(1) over (partition by Driver ID order by Infraction Date)</code> 获取每个司机下一个罚款日期,然后相减,很容算出每次罚款的日期间隔,在 Python 中通过 Pandas 其实也很容易实现,这里直接给出实现方式.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'Next_infraction_Date'</span>]=df.sort_values(by=[<span class="string">'Infraction Date'</span>],ascending=<span class="literal">True</span>).groupby(<span class="string">'Driver ID'</span>)[<span class="string">'Infraction Date'</span>].shift(<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+<p>执行完毕后数据如下:<br><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/20200628175549.png" alt></p>
+<h1 id="row-number-实现"><a href="#row-number-实现" class="headerlink" title="row_number 实现"></a>row_number 实现</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="string">'Infraction Date'</span>] = pd.to_datetime(df[<span class="string">'Infraction Date'</span>]) <span class="comment"># 这里需要先对日期类型转换,不转换默认是 Object 类型,pandas 无法对 Object 类型进行排序</span></span><br><span class="line">df[<span class="string">'Infraction Number'</span>]=df.groupby(<span class="string">'Driver ID'</span>)[<span class="string">'Infraction Date'</span>].rank(method=<span class="string">'first'</span>).astype(<span class="string">'int'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/20200628175843.png" alt></p>
 
       
     </div>
@@ -428,6 +437,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/数据分析/" rel="tag"># 数据分析</a>
+          
+        </div>
+      
 
       
       
@@ -437,8 +452,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/22/特征工程/" rel="next" title="特征工程">
-                <i class="fa fa-chevron-left"></i> 特征工程
+              <a href="/2020/06/23/Tableau-Prep-Python-使用指南/" rel="next" title="Tableau Prep Python 使用指南">
+                <i class="fa fa-chevron-left"></i> Tableau Prep Python 使用指南
               </a>
             
           </div>
@@ -446,10 +461,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/25/精力管理/" rel="prev" title="精力管理">
-                精力管理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -508,8 +519,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="张俊">
           <p class="site-author-name" itemprop="name">张俊</p>
@@ -602,6 +622,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件下载"><span class="nav-number">1.</span> <span class="nav-text">文件下载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lead-实现"><span class="nav-number">2.</span> <span class="nav-text">Lead 实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#row-number-实现"><span class="nav-number">3.</span> <span class="nav-text">row_number 实现</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -739,9 +775,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://zjsnowman.com/2019/02/19/独角兽分析/';
-          this.page.identifier = '2019/02/19/独角兽分析/';
-          this.page.title = '2019 寻找潜在工作指南';
+          this.page.url = 'http://zjsnowman.com/2020/06/28/Python-实现-Lead-Row-Number-效果/';
+          this.page.identifier = '2020/06/28/Python-实现-Lead-Row-Number-效果/';
+          this.page.title = 'Python 实现 Lead/Row_Number 效果';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://ZJsnowman.disqus.com/embed.js';
