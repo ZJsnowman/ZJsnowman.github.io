@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zjsnowman.com/"/>
-  <updated>2020-06-28T10:04:44.406Z</updated>
+  <updated>2020-07-01T09:26:39.806Z</updated>
   <id>http://zjsnowman.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python 长宽表转换 </title>
+    <link href="http://zjsnowman.com/2020/07/01/Python-%E9%95%BF%E5%AE%BD%E8%A1%A8%E8%BD%AC%E6%8D%A2/"/>
+    <id>http://zjsnowman.com/2020/07/01/Python-%E9%95%BF%E5%AE%BD%E8%A1%A8%E8%BD%AC%E6%8D%A2/</id>
+    <published>2020-07-01T09:16:02.000Z</published>
+    <updated>2020-07-01T09:26:39.806Z</updated>
+    
+    <content type="html"><![CDATA[<p>借助 Pandas 对数据进行长表宽表互相转换<a id="more"></a></p><h1 id="长表转宽表"><a href="#长表转宽表" class="headerlink" title="长表转宽表"></a>长表转宽表</h1><ul><li><code>pivot()</code></li><li><code>pivot_table()</code></li></ul><h1 id="宽表转长表"><a href="#宽表转长表" class="headerlink" title="宽表转长表"></a>宽表转长表</h1><ul><li><code>melt()</code></li></ul><h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p> <a href="https://nikgrozev.com/2015/07/01/reshaping-in-pandas-pivot-pivot-table-stack-and-unstack-explained-with-pictures/" target="_blank" rel="noopener">https://nikgrozev.com/2015/07/01/reshaping-in-pandas-pivot-pivot-table-stack-and-unstack-explained-with-pictures/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;借助 Pandas 对数据进行长表宽表互相转换
+    
+    </summary>
+    
+    
+    
+      <category term="数据分析" scheme="http://zjsnowman.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
   
   <entry>
     <title>Python 实现 Lead/Row_Number 效果</title>
@@ -278,7 +299,7 @@
     <published>2018-06-25T04:03:26.000Z</published>
     <updated>2019-10-21T02:55:51.581Z</updated>
     
-    <content type="html"><![CDATA[<script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">方便查看</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> U2FsdGVkX1/O6TGKx/DRRrbjV0xTCa4RP1ScnAmmEm1TuG7NGScQeQstJbtp414RnHhAB8JsJwKqmTb0KEul3XWPtQv44+znSbDUGZFe9RWl9+m+L0D1aeWjBEaUs5kVlc/WADM+T4Y9GbTYx0xy7UArFd+gnp291K7aY5WECFpdjfLcB79iV/T73zr+HPLgCy+c7f4BBn8qEXbEXbCZ2KgBJQxOhfMntsBXfC4D+kYEUB6Al+0L4x37OTC5oE/7WGF05FC2Z8Oov5UgII5YbT5BBtEIL2iQkfjHsALW/QWkdt8EIqe4mJr8d5uFtg07n6+UwSyMies/tpqJbASTkRZ294n+Deqam94+wetPoew7ewVOYh2IcFq+gFvOkhSJIO2jnBI2e7CLkYccxVtrtHmvnVa2zP1p6wz3X9WvbmU2AI8mqAUmOA+icr6hcEEv+XeXXmDisbTehUvVGwIHMEH5vL1Fzh4XeVkXgegCsJgBGvZ+w2545dOLUVXBv1qEsGeuDJwRPh1ckwMu5v4XL2aaqtNwvOinsG22wtjVGbsIZiTEd3pwRl+NmkBo/dg8iJY4QX0z5zeMItRcIfC9HL6Y2onhxHi/CpmMlwE+O9vtS6H1VPK4EZ7GT7iabyBbtQ6nNm5M3KFQfUUgKu63aQ== </div>]]></content>
+    <content type="html"><![CDATA[<script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">方便查看</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> U2FsdGVkX1+RyVmNLpH+auI4vbtnEgTizHjF0rxUD+k98zZapXYv0y6hzOoaEpHSQ6Zb30Bk7D3RhhyM72C+q03lAjy+Q536rYipDqLhvaQP4DC1aRwGP7sU7PSwcSyNprvC41dCVbEGudRUr/nANCvBmEG1BpJvYpJaTBdNc+jKCGRVI9TKR/wCmVLZ+L/5/T+BMziloS3+HC5rTu93lFSomaYDQUR5xIkmPJeutUl3c11zL/qgh4097XfUbP1Q5AhvAcSUm490pJmU56zN+PLhtM+Xjy2j9Gzxfyp0d8oejud8GhlNThHZyZkPjcIOp3dmb2ssCIUD9cYD0JYPVVyyV/Yq+pPVUgxJlf2TzfLAUsPfUPA5EPppdKe81kT5PokA4CEufnuraFe3+FJKyK6SNlgBtVI9SVJlh/Ht+R14AxbL9ldX3ihbn5HO83n2LLvkURrZeAV7vVGdWfhkZz1tEx7BH82C0xyaQomXhoBBhdxyIRXo1VOK8Xf/o8WBgR/ABAB/8gRBHsxJqSTNtIBQWLgbah3ny2K+CbLLqpaLsVp1g4jyEwfSQ9106LOzh0miJNLQk3C+a3QUizmG7SldlgIYe5ohvxNPmFBvFn5DDcAo0G1hcehjKp0r1219K7ClJQ8OQFkXlbti1fABXg== </div>]]></content>
     
     <summary type="html">
     
@@ -386,27 +407,6 @@
     </summary>
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>大数据相关技术</title>
-    <link href="http://zjsnowman.com/2018/05/23/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF/"/>
-    <id>http://zjsnowman.com/2018/05/23/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF/</id>
-    <published>2018-05-23T02:12:41.000Z</published>
-    <updated>2019-10-21T02:55:51.581Z</updated>
-    
-    <content type="html"><![CDATA[<p>大数据技术涉及到一些基本概念<a id="more"></a></p><h1 id="Hadoop是什么"><a href="#Hadoop是什么" class="headerlink" title="Hadoop是什么"></a>Hadoop是什么</h1><p>Hadoop=HDFS(分布式文件系统)+MapReduce(分布式计算)</p><h2 id="HDFS"><a href="#HDFS" class="headerlink" title="HDFS"></a>HDFS</h2><h3 id="数据块"><a href="#数据块" class="headerlink" title="数据块"></a>数据块</h3><p>数据块是抽象块而非整个文件作为存储单元<br>默认是64M, 一般设置128M,备份 X3</p><h3 id="NameNode"><a href="#NameNode" class="headerlink" title="NameNode"></a>NameNode</h3><ul><li>管理文件系统的命名空间,存放文件元数据</li><li>维护着文件系统的所有文件和目录,文件与数据块的映射</li><li>记录每个文件中各个块所在数据节点的信息</li></ul><h3 id="DataNode"><a href="#DataNode" class="headerlink" title="DataNode"></a>DataNode</h3><ul><li>存储并检索数据块</li><li>向 NameNode更新所存储的列表</li></ul><h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul><li>不适合大量小文件存储</li><li>不适合并发写入, 不支持文件随机更改</li><li>不支持随机读等低延迟的方式</li></ul><h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><ul><li>shell 操作  通过<code>hadoop fs -option</code></li><li>python 操作 通过<code>hdfs3</code>这个包来和 hdfs 交互</li></ul><h2 id="MapReduce"><a href="#MapReduce" class="headerlink" title="MapReduce"></a>MapReduce</h2><h3 id="yarn"><a href="#yarn" class="headerlink" title="yarn"></a>yarn</h3><h4 id="ResourceManager"><a href="#ResourceManager" class="headerlink" title="ResourceManager"></a>ResourceManager</h4><ul><li>分配和调度资源</li><li>启动并监控 ApplicationMaster</li><li>监控NodeManager<h4 id="NodeManager"><a href="#NodeManager" class="headerlink" title="NodeManager"></a>NodeManager</h4></li><li>管理单个节点的资源</li><li>处理来自ResourceManager的命令</li><li><p>处理来自 ApplicationMaster 的命令</p><h4 id="ApplicationMaster"><a href="#ApplicationMaster" class="headerlink" title="ApplicationMaster"></a>ApplicationMaster</h4></li><li><p>为 MapReduce类型的程序申请资源,并分配给内部任务</p></li><li>负责数据的切分</li><li>监控任务的执行和容错</li></ul><h3 id="编程模型"><a href="#编程模型" class="headerlink" title="编程模型"></a>编程模型</h3><p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-24-044021.jpg" alt></p><h2 id="Hadoop-生态"><a href="#Hadoop-生态" class="headerlink" title="Hadoop 生态"></a>Hadoop 生态</h2><p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-24-044037.jpg" alt></p><h3 id="HBase-Hadoop-database"><a href="#HBase-Hadoop-database" class="headerlink" title="HBase( Hadoop database)"></a>HBase( Hadoop database)</h3><p>HBase 是一个分布式数据库</p><ul><li>利用HDFS 作为文件存储系统,支持MR程序读取数据</li><li>存储非结构化和半结构化数据</li></ul><h3 id="Spark"><a href="#Spark" class="headerlink" title="Spark"></a>Spark</h3><p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-24-044101.jpg" alt></p><ul><li>Spark是 <strong>基于内存计算</strong> 的大数据并行计算框架</li><li>Spark 是MapReduce的替代方案,兼容 HDFS,HIVE 等数据源</li></ul><h3 id="Hive"><a href="#Hive" class="headerlink" title="Hive"></a>Hive</h3><p>Hive 是SQL 解析引擎,他将SQL 语句转移成MR 操作,然后在 hadoop 上执行<br>定义了一种类 SQL 语言:HQL(类似但不是完全相同)</p><p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-24-044114.jpg" alt="Hive 体系架构"></p><h3 id="Spark-外部数据"><a href="#Spark-外部数据" class="headerlink" title="Spark 外部数据"></a>Spark 外部数据</h3><p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-24-044115.jpg" alt></p><h3 id="离线数据处理架构"><a href="#离线数据处理架构" class="headerlink" title="离线数据处理架构"></a>离线数据处理架构</h3><p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-24-044119.jpg" alt></p><h1 id="推荐使用版本"><a href="#推荐使用版本" class="headerlink" title="推荐使用版本"></a>推荐使用版本</h1><p><a href="http://archive.cloudera.com/cdh5/cdh/5/o" target="_blank" rel="noopener">http://archive.cloudera.com/cdh5/cdh/5/o</a></p><h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><p><a href="http://hadoop.apache.org/" target="_blank" rel="noopener">Hadoop文档</a></p><p><a href="https://hive.apache.org/" target="_blank" rel="noopener">Hive</a></p><p><a href="https://spark-packages.org/" target="_blank" rel="noopener">Spark 第三方包</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;大数据技术涉及到一些基本概念
-    
-    </summary>
-    
-    
-    
-      <category term="数据分析" scheme="http://zjsnowman.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
     
   </entry>
   
