@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="数据分析,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="看见什么吃什么" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="Python虚拟环境管理工具">
+<meta name="keywords" content="数据分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Anaconda使用备注">
+<meta property="og:url" content="http://zjsnowman.com/2017/11/15/Anaconda/index.html">
+<meta property="og:site_name" content="看见什么吃什么">
+<meta property="og:description" content="Python虚拟环境管理工具">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-24-043127.jpg">
+<meta property="og:updated_time" content="2019-10-21T02:55:51.572Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Anaconda使用备注">
+<meta name="twitter:description" content="Python虚拟环境管理工具">
+<meta name="twitter:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-24-043127.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'AEDNVYBRXD',
+      apiKey: '8b0fd63b8531c6673fc8ec50b80429ef',
+      indexName: 'prod_blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zjsnowman.com/2017/11/15/Anaconda/">
+
+
+
+
+
+  <title>Anaconda使用备注 | 看见什么吃什么</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-104303218-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">看见什么吃什么</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zjsnowman.com/2017/11/15/Anaconda/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张俊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="看见什么吃什么">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Anaconda使用备注</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-15T11:37:50+08:00">
+                2017-11-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/15/Anaconda/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/15/Anaconda/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/15/Anaconda/" class="leancloud_visitors" data-flag-title="Anaconda使用备注">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Python虚拟环境管理工具<a id="more"></a></p>
+<h1 id="Anaconda-是什么"><a href="#Anaconda-是什么" class="headerlink" title="Anaconda 是什么"></a>Anaconda 是什么</h1><p> Anaconda 是用来管理 Python 所用的包和环境。Anaconda 能让你在数据科学的工作中轻松安装经常使用的程序包。你还将使用它创建虚拟环境，以便更轻松地处理多个项目。Anaconda 简化了工作流程，并且解决了多个包和 Python 版本之间遇到的大量问题。</p>
+<p>Anaconda 实际上是一个软件发行版，它附带了 conda、Python 和 150 多个科学包及其依赖项。应用程序 conda 是包和环境管理器。Anaconda 的下载文件比较大（约 500 MB），因为它附带了 Python 中最常用的数据科学包。如果只需要某些包，或者需要节省带宽或存储空间，也可以使用 Miniconda 这个较小的发行版（仅包含 conda 和 Python）。但你仍可以使用 conda 来安装任何可用的包，它只是自身没有附带这些包而已。</p>
+<p>你可能已经安装了 Python，并且想知道为何还需要 Anaconda。首先， Anaconda 附带了一大批常用数据科学包，因此你可以立即开始处理数据。其次，使用 conda 来管理包和环境能减少将来在处理数据过程中使用到的各种库与版本时遇到的问题。</p>
+<h2 id="管理包"><a href="#管理包" class="headerlink" title="管理包"></a>管理包</h2><p>包管理器用于在计算机上安装库和其他软件。你可能已经熟悉 pip，它是 Python 库的默认包管理器。conda 与 pip 相似，不同之处是可用的包以数据科学包为主，而 pip 适合一般用途。与此同时，conda 并非 像 pip 那样专门适用于 Python，它也可以安装非 Python 的包。它是支持 任何 软件的包管理器。也就是说，虽然并非所有的 Python 库都能通过 Anaconda 发行版和 conda 获得，但同时它也支持非 Python 库的获得。在使用 conda 的同时，你仍可以使用 pip 来安装包。</p>
+<p>Conda 安装了预编译的包。例如，Anaconda 发行版附带了使用 MKL 库编译的 Numpy、Scipy 和 Scikit-learn，从而加快了各种数学运算的速度。这些包由发行版的贡献者维护，这意味着它们通常滞后于最新版本。但是，由于有人需要利用这些包来进行系统构建，因此它们往往更为稳定，而且也更便于你使用。</p>
+<h2 id="管理环境"><a href="#管理环境" class="headerlink" title="管理环境"></a>管理环境</h2><p>除了管理包之外，conda 还是虚拟环境管理器。它类似于另外两个很流行的环境管理器，即 virtualenv 和 pyenv。</p>
+<p>环境能让你分隔用于不同项目的包。你常常要使用依赖于某个库的不同版本的代码。例如，你的代码可能使用了 Numpy 中的新功能，或者使用了已删除的旧功能。实际上，不可能同时安装两个 Numpy 版本。你要做的应该是，为每个 Numpy 版本创建一个环境，然后项目的对应环境中工作。</p>
+<p>在应对 Python 2 和 Python 3 时，此问题也会常常发生。你可能会使用在 Python 3 中不能运行的旧代码，以及在 Python 2 中不能运行的新代码。同时安装两个版本可能会造成许多混乱和错误，而创建独立的环境会好很多。</p>
+<p>你也可以将环境中的包列表导出为文件，然后将该文件与代码包括在一起。这能让其他人轻松加载代码的所有依赖项。pip 提供了类似的功能，即 pip freeze &gt; requirements.txt。</p>
+<h1 id="管理包-1"><a href="#管理包-1" class="headerlink" title="管理包"></a>管理包</h1><p>安装了 Anaconda 之后，管理包是相当简单的。要安装包，请在终端中键入 conda install package_name。例如，要安装 numpy，请键入 conda install numpy。</p>
+<p>你还可以同时安装多个包。类似 conda install numpy scipy pandas 的命令会同时安装所有这些包。还可以通过添加版本号（例如 conda install numpy=1.10）来指定所需的包版本。</p>
+<p>Conda 还会自动为你安装依赖项。例如，scipy 依赖于 numpy，因为它使用并需要 numpy。如果你只安装 scipy (conda install scipy)，则 conda 还会安装 numpy（如果尚未安装的话）。</p>
+<p>大多数命令都是很直观的。要卸载包，请使用 conda remove package_name。要更新包，请使用 conda update package_name。如果想更新环境中的所有包（这样做常常很有用），请使用 conda update —all。最后，要列出已安装的包，请使用前面提过的 conda list。</p>
+<p>如果不知道要找的包的确切名称，可以尝试使用 conda search search_term 进行搜索。例如，我知道我想安装 Beautiful Soup，但我不清楚确切的包名称。因此，我尝试执行 conda search beautifulsoup。</p>
+<p>搜索 beautifulsoup<br>它返回可用的 Beautiful Soup 包的列表，并列出了相应的包名称 beautifulsoup4。</p>
+<h1 id="管理环境-1"><a href="#管理环境-1" class="headerlink" title="管理环境"></a>管理环境</h1><p>如前所述，你可以使用 conda 创建环境以隔离项目。要创建环境，请在终端中使用 conda create -n env_name list of packages。在这里，-n env_name 设置环境的名称（-n 是指名称），而 list of packages 是要安装在环境中的包的列表。例如，要创建名为 my_env 的环境并在其中安装 numpy，请键入 conda create -n my_env numpy。</p>
+<p>创建环境时，可以指定要安装在环境中的 Python 版本。这在你同时使用 Python 2.x 和 Python 3.x 中的代码时很有用。要创建具有特定 Python 版本的环境，请键入类似于 conda create -n py3 python=3 或 conda create -n py2 python=2 的命令。实际上，我在我的个人计算机上创建了这两个环境。我将它们用作与任何特定项目均无关的通用环境，以处理普通的工作（可轻松使用每个 Python 版本）。这些命令将分别安装 Python 3 和 Python 2 的最新版本。要安装特定版本（例如 Python 3.3），请使用 conda create -n py python=3.3。</p>
+<p>进入环境<br>创建了环境后，在 OSX/Linux 上使用 source activate my_env 进入环境。在 Windows 上，请使用 activate my_env。</p>
+<p>进入环境后，你会在终端提示符中看到环境名称，它类似于 (my_env) ~ $。环境中只安装了几个默认的包，以及你在创建它时安装的包。你可以使用 conda list 检查这一点。在环境中安装包的命令与前面一样：conda install package_name。不过，这次你安装的特定包仅在你进入环境后才可用。要离开环境，请键入 source deactivate（在 OSX/Linux 上）。在 Windows 上，请使用 deactivate。</p>
+<h2 id="保存和加载环境"><a href="#保存和加载环境" class="headerlink" title="保存和加载环境"></a>保存和加载环境</h2><p>共享环境这项功能确实很有用，它能让其他人安装你的代码中使用的所有包，并确保这些包的版本正确。你可以使用 conda env export &gt; environment.yaml 将包保存为 YAML。命令的第一部分 conda env export 用于输出环境中的所有包的名称（包括 Python 版本）。</p>
+<p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-24-043127.jpg" alt="将导出的环境输出到终端中"><br>上图中，你可以看到环境的名称和所有依赖项及其版本。导出命令的第二部分 &gt; environment.yaml 将导出的文本写入到 YAML 文件 environment.yaml 中。现在可以共享此文件，而且其他人能够用于创建和你项目相同的环境。</p>
+<p>要通过环境文件创建环境，请使用 conda env create -f environment.yaml。这会创建一个新环境，而且它具有同样的在 environment.yaml 中列出的库。</p>
+<h2 id="列出环境"><a href="#列出环境" class="headerlink" title="列出环境"></a>列出环境</h2><p>如果忘记了环境的名称（我有时会这样），可以使用 conda env list 列出你创建的所有环境。你会看到环境的列表，而且你当前所在环境的旁边会有一个星号。默认的环境（即当你不在选定环境中时使用的环境）名为 root。</p>
+<h2 id="删除环境"><a href="#删除环境" class="headerlink" title="删除环境"></a>删除环境</h2><p>如果你不再使用某些环境，可以使用 conda env remove -n env_name 删除指定的环境（在这里名为 env_name）。</p>
+<h3 id="Cheat-sheet-下载"><a href="#Cheat-sheet-下载" class="headerlink" title="Cheat-sheet 下载:"></a>Cheat-sheet 下载:</h3><p><a href="https://conda.io/docs/_downloads/conda-cheatsheet.pdf" target="_blank" rel="noopener">Conda cheat sheet</a></p>
+<h2 id="Anaconda-or-Miniconda-安装与卸载"><a href="#Anaconda-or-Miniconda-安装与卸载" class="headerlink" title="Anaconda or Miniconda 安装与卸载"></a>Anaconda or Miniconda 安装与卸载</h2><p><a href="https://conda.io/docs/user-guide/install/index.html#installing-conda-on-a-system-that-has-other-python-installations-or-packages" target="_blank" rel="noopener">参考官方文档</a></p>
+<h2 id="Conda-国内镜像"><a href="#Conda-国内镜像" class="headerlink" title="Conda 国内镜像"></a>Conda 国内镜像</h2><p><a href="https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/" target="_blank" rel="noopener">清华镜像</a></p>
+<h2 id="Conda-tutorial"><a href="#Conda-tutorial" class="headerlink" title="Conda tutorial"></a>Conda tutorial</h2><p><a href="https://conda.io/docs/user-guide/getting-started.html#" target="_blank" rel="noopener">官方入门教程</a></p>
+<h2 id="Python导出所有包组件版本与批量安装指定版本包组件"><a href="#Python导出所有包组件版本与批量安装指定版本包组件" class="headerlink" title="Python导出所有包组件版本与批量安装指定版本包组件"></a>Python导出所有包组件版本与批量安装指定版本包组件</h2><p>Python使用pip导出当前环境所有包组件版本<code>pip freeze &gt; requirements.txt</code></p>
+<p>Python使用pip批量安装指定版本组件包<code>pip install -r requirements.txt</code></p>
+<p><a href="http://pip-cn.readthedocs.io/en/latest/installing.html" target="_blank" rel="noopener">pip 安装教程,如果没有 pip 的话</a></p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/help/pypi/" target="_blank" rel="noopener">pip国内镜像</a></p>
+<h2 id="Jupyter和-Conda-虚拟环境关联"><a href="#Jupyter和-Conda-虚拟环境关联" class="headerlink" title="Jupyter和 Conda 虚拟环境关联"></a>Jupyter和 Conda 虚拟环境关联</h2><p><a href="https://docs.anaconda.com/anaconda/user-guide/tasks/use-jupyter-notebook-extensions" target="_blank" rel="noopener">参考官网</a></p>
+<h2 id="Anaconda-卸载"><a href="#Anaconda-卸载" class="headerlink" title="Anaconda 卸载"></a>Anaconda 卸载</h2><p><a href="https://docs.anaconda.com/anaconda/install/uninstall" target="_blank" rel="noopener">官网卸载教程</a></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>Conda 是和 virtualenv类似的一个环境管理工具.可以通过他们来创建不同的 python 环境<br><code>conda install</code> 和 <code>pip install</code>作用不一样,具体可以参考官方教程里的<a href="https://conda.io/docs/user-guide/getting-started.html#managing-packages" target="_blank" rel="noopener">包管理</a>的详细说明.<br>简单来说,conda install 安装的是来自Anaconda 服务的包,具体可以安装的包在官网有显示,<a href="https://docs.anaconda.com/anaconda/packages/py2.7_osx-64" target="_blank" rel="noopener">具体如下</a>,不同版本不一样.由 Anaconda 维护<br>而 pip 可以作为 conda 的一个补充,当 conda 没有的时候可以通过 pip 安装.<br>pip 是 python的包管理工具, conda其实也可以管理其他语言. pip包是由pypi管理的.<br>上面两个管理工具都可以替换为国内源,加快下载速度</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据分析/" rel="tag"># 数据分析</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/08/R-学习备注/" rel="next" title="R 学习备注">
+                <i class="fa fa-chevron-left"></i> R 学习备注
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/15/MQ-学习笔记/" rel="prev" title="MQ 学习笔记">
+                MQ 学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="张俊">
+          <p class="site-author-name" itemprop="name">张俊</p>
+           
+              <p class="site-description motion-element" itemprop="description">过一种有价值的中产阶级生活</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">82</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ZJsnowman" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/zjsnowman" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/ZJsnowman/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-quora"></i>
+                  
+                    
+                      知乎
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Anaconda-是什么"><span class="nav-number">1.</span> <span class="nav-text">Anaconda 是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#管理包"><span class="nav-number">1.1.</span> <span class="nav-text">管理包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理环境"><span class="nav-number">1.2.</span> <span class="nav-text">管理环境</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#管理包-1"><span class="nav-number">2.</span> <span class="nav-text">管理包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#管理环境-1"><span class="nav-number">3.</span> <span class="nav-text">管理环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#保存和加载环境"><span class="nav-number">3.1.</span> <span class="nav-text">保存和加载环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列出环境"><span class="nav-number">3.2.</span> <span class="nav-text">列出环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除环境"><span class="nav-number">3.3.</span> <span class="nav-text">删除环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cheat-sheet-下载"><span class="nav-number">3.3.1.</span> <span class="nav-text">Cheat-sheet 下载:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Anaconda-or-Miniconda-安装与卸载"><span class="nav-number">3.4.</span> <span class="nav-text">Anaconda or Miniconda 安装与卸载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conda-国内镜像"><span class="nav-number">3.5.</span> <span class="nav-text">Conda 国内镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conda-tutorial"><span class="nav-number">3.6.</span> <span class="nav-text">Conda tutorial</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python导出所有包组件版本与批量安装指定版本包组件"><span class="nav-number">3.7.</span> <span class="nav-text">Python导出所有包组件版本与批量安装指定版本包组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jupyter和-Conda-虚拟环境关联"><span class="nav-number">3.8.</span> <span class="nav-text">Jupyter和 Conda 虚拟环境关联</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Anaconda-卸载"><span class="nav-number">3.9.</span> <span class="nav-text">Anaconda 卸载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张俊</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://ZJsnowman.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://zjsnowman.com/2017/11/15/Anaconda/';
+          this.page.identifier = '2017/11/15/Anaconda/';
+          this.page.title = 'Anaconda使用备注';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ZJsnowman.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("1m1SVHmQhKszN3lTe3rKgo87-gzGzoHsz", "i9e5m0oHfrGz1EzsarxpYbh2");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

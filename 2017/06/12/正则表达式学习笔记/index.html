@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Android,others,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="看见什么吃什么" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="正则表达式一些注意点。输出一份正则自学指南Learn Regex，用于公司内部分享教学，开源出来，欢迎PR 。另外在SHELL下awk在很多场景很实用，不用纠结正则。比如正则">
+<meta name="keywords" content="Android,others">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式学习笔记">
+<meta property="og:url" content="http://zjsnowman.com/2017/06/12/正则表达式学习笔记/index.html">
+<meta property="og:site_name" content="看见什么吃什么">
+<meta property="og:description" content="正则表达式一些注意点。输出一份正则自学指南Learn Regex，用于公司内部分享教学，开源出来，欢迎PR 。另外在SHELL下awk在很多场景很实用，不用纠结正则。比如正则">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fw5aa8p7odj31kw0sgwj0.jpg">
+<meta property="og:updated_time" content="2019-10-21T02:55:51.583Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式学习笔记">
+<meta name="twitter:description" content="正则表达式一些注意点。输出一份正则自学指南Learn Regex，用于公司内部分享教学，开源出来，欢迎PR 。另外在SHELL下awk在很多场景很实用，不用纠结正则。比如正则">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fw5aa8p7odj31kw0sgwj0.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'AEDNVYBRXD',
+      apiKey: '8b0fd63b8531c6673fc8ec50b80429ef',
+      indexName: 'prod_blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zjsnowman.com/2017/06/12/正则表达式学习笔记/">
+
+
+
+
+
+  <title>正则表达式学习笔记 | 看见什么吃什么</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-104303218-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">看见什么吃什么</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zjsnowman.com/2017/06/12/正则表达式学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张俊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="看见什么吃什么">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">正则表达式学习笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-12T18:38:49+08:00">
+                2017-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/12/正则表达式学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/06/12/正则表达式学习笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/06/12/正则表达式学习笔记/" class="leancloud_visitors" data-flag-title="正则表达式学习笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>正则表达式一些注意点。输出一份正则自学指南<a href="https://github.com/ZJsnowman/learn-regex" target="_blank" rel="noopener">Learn Regex</a>，用于公司内部分享教学，开源出来，欢迎PR 。另外在SHELL下awk在很多场景很实用，不用纠结正则。比如正则<a id="more"></a></p>
+<h1 id="正则表达式是什么"><a href="#正则表达式是什么" class="headerlink" title="正则表达式是什么"></a>正则表达式是什么</h1><p>在编写处理字符串的程序或网页时，经常会有查找符合某些复杂规则的字符串的需要。正则表达式就是用于描<br>述这些规则的工具。换句话说，正则表达式就是记录文本规则的代码。<br>很可能你使用过Windows/Dos下用于文件查找的通配符(wildcard)，也就是*和?。如果你想查找某个目录<br>下的所有的Word文档的话，你会搜索*.doc。在这里，”*“会被解释成任意的字符串。和通配符类似，正则<br>表达式也是用来进行文本匹配的工具，只不过比起通配符，它能更精确地描述你的需求——当然，代价就是<br>更复杂——比如你可以编写一个正则表达式，用来查找所有以0开头，后面跟着2-3个数字，然后是一个连<br>字号“-”，最后是7或8位数字的字符串(像010-12345678或0376-7654321)。</p>
+<h1 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h1><ul>
+<li>匹配</li>
+<li>切分</li>
+<li>分组(提取子串)</li>
+<li>替换 python re 模块有非常方便的 Api 来替换字符串中的某些字符-&gt;<code>re.sub()</code></li>
+</ul>
+<p><a href="https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386832260566c26442c671fa489ebc6fe85badda25cd000" target="_blank" rel="noopener">参考廖雪峰</a></p>
+<h1 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h1><p>根据不同的语言自行搞定<br>参考：<a href="https://drive.google.com/open?id=0B8SC8SttiuHPLUVZLVBPak5wNUE" target="_blank" rel="noopener">正则表达式ppt</a></p>
+<h1 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h1><ul>
+<li>如果查找运算符本身,需要转义。例如字符串包含”.” 就在前面加一个斜杠 —&gt; \.</li>
+<li>一些修饰符,如果不明确用括号()分开,则只修饰离他最近的。例如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http|https|ftp:\/\/[\w.]+</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><em>这个+只修饰[\w.]</em></p>
+<ul>
+<li>括号()可以界定范围的作用.例如:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ftp://www.google.com</span><br><span class="line">http://www.google.com</span><br><span class="line">https://www.google.com</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>找出协议部分ftp,http,https.你需要写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(http|https|ftp):\/\/[\w.]+</span><br></pre></td></tr></table></figure></p>
+<p>括号起到了一个分组的作用.如果不使用括号分组,那么就会变成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http|https|ftp:\/\/[\w.]+</span><br></pre></td></tr></table></figure></p>
+<p>“|”实际作用于http,https,ftp:\/\/[w.]+ 这三种选择.<br>所以是否添加括号,”|”作用的范围是不一样的.</p>
+<p><strong>这里总结一下:+量词(星号,加号,问好)作用的对象是它们之前紧邻的子表达式(subexpression),所以要弄明白量词的修饰范围,只需要理解子表达式就可以了,具体可以参考&lt;&lt;精通正则表达式&gt;&gt;P29页的阐述</strong></p>
+<ul>
+<li>python re 模块中 search 和 match 的区别</li>
+</ul>
+<p>简单来说既是 search 会搜索整个字符串,只要有符合的就可以.而 Match 则是从头开始匹配的<br>只要第一个字符不匹配,就会返回 None.</p>
+<p>以下为官方文档引用:</p>
+<blockquote>
+<p>Python offers two different primitive operations based von regular expressions: re.match() checks for a match only at the beginning of the string, while re.search() checks for a match anywhere in the string (this is what Perl does by default).</p>
+<p>For example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; re.match(&quot;c&quot;, &quot;abcdef&quot;)    # No match</span><br><span class="line">&gt;&gt;&gt; re.search(&quot;c&quot;, &quot;abcdef&quot;)   # Match</span><br><span class="line">&lt;_sre.SRE_Match object at ...&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>Regular expressions beginning with ‘^’ can be used with search() to restrict the match at the beginning of the string:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; re.match(&quot;c&quot;, &quot;abcdef&quot;)    # No match</span><br><span class="line">&gt;&gt;&gt; re.search(&quot;^c&quot;, &quot;abcdef&quot;)  # No match</span><br><span class="line">&gt;&gt;&gt; re.search(&quot;^a&quot;, &quot;abcdef&quot;)  # Match</span><br><span class="line">&lt;_sre.SRE_Match object at ...&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Note however that in MULTILINE mode match() only matches at the beginning of the string, whereas using search() with a regular expression beginning with ‘^’ will match at the beginning of each line.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; re.match(&apos;X&apos;, &apos;A\nB\nX&apos;, re.MULTILINE)  # No match</span><br><span class="line">&gt;&gt;&gt; re.search(&apos;^X&apos;, &apos;A\nB\nX&apos;, re.MULTILINE)  # Match</span><br><span class="line">&lt;_sre.SRE_Match object at ...&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="常用工具"><a href="#常用工具" class="headerlink" title="常用工具"></a>常用工具</h1><h2 id="cheatsheet"><a href="#cheatsheet" class="headerlink" title="cheatsheet"></a>cheatsheet</h2><p><a href="http://plcdn.qiniudn.com/wp-content/uploads/2011/12/regular-expressions-cheat-sheet-v2.pdf" target="_blank" rel="noopener">点我查看</a></p>
+<p><strong>注意,这里<code>.</code>是常用符号类符号,解释为任意字符,和<code>\d</code>是一个类型.<code>*</code>是数量限定符(Quantifiers),意思是任意数量包括0个,和<code>+</code>,<code>{m, n}</code>是一个类型的.所以<code>.*</code>的解释为任意数量的字符</strong></p>
+<h2 id="测试网站"><a href="#测试网站" class="headerlink" title="测试网站"></a>测试网站</h2><p><a href="https://regex101.com/" target="_blank" rel="noopener">regex101</a> 这个需要科学上网<br><a href="https://tool.lu/regex/" target="_blank" rel="noopener">https://tool.lu/regex/</a>  这个国内的不需要</p>
+<p><em>这里可以设置响应时间的,某些情况下正则表达式比较复杂的时候需要延长响应时间</em></p>
+<h1 id="常用正则"><a href="#常用正则" class="headerlink" title="常用正则"></a>常用正则</h1><h2 id="提取文本中的数字"><a href="#提取文本中的数字" class="headerlink" title="提取文本中的数字"></a>提取文本中的数字</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">re_num=re.compile(<span class="string">'.*?(\d+\.?\d+).*'</span>)  //正则使用比较多的话预编译会提高效率</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">extract_num</span><span class="params">(text)</span>:</span></span><br><span class="line">    <span class="comment">#从字符串中提取出数字</span></span><br><span class="line">    match_re = re_num.match(text)</span><br><span class="line">    <span class="keyword">if</span> match_re:</span><br><span class="line">        nums = float(match_re.group(<span class="number">1</span>))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        nums = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> nums</span><br></pre></td></tr></table></figure>
+<h2 id="匹配中文"><a href="#匹配中文" class="headerlink" title="匹配中文"></a>匹配中文</h2><p>匹配中文字符的正则表达式： <code>[\u4e00-\u9fa5]</code></p>
+<h1 id="疑问点"><a href="#疑问点" class="headerlink" title="疑问点"></a>疑问点</h1><h2 id="贪婪模式解释"><a href="#贪婪模式解释" class="headerlink" title="贪婪模式解释"></a>贪婪模式解释</h2><ul>
+<li>在贪婪（默认）模式下，正则引擎尽可能多的重复匹配字符</li>
+<li>在非贪婪模式下，正则引擎尽可能少的重复匹配字符</li>
+</ul>
+<p><a href="https://www.jianshu.com/p/532a62d6baef" target="_blank" rel="noopener">参考这个</a></p>
+<h2 id="lookaround"><a href="#lookaround" class="headerlink" title="lookaround"></a>lookaround</h2><p><a href="https://juejin.im/post/5b4a9539f265da0f521de210" target="_blank" rel="noopener">正则中关于环视（lookaround）的小例子</a></p>
+<p><a href="https://www.codewars.com/kata/52e1476c8147a7547a000811/train/python" target="_blank" rel="noopener">codewar regex 例子</a></p>
+<h1 id="精通正则表达式学习笔记"><a href="#精通正则表达式学习笔记" class="headerlink" title="精通正则表达式学习笔记"></a>精通正则表达式学习笔记</h1><ul>
+<li><p>r”q<sup><a href="#fn_u" id="reffn_u">u</a></sup>“ 无法匹配’Qantas’或者’Iraq’<br>第一个是因为大小写的问题<br>第二个则是:一个字符组,即使是排除型字符组,也需要匹配一个字符,只不过最终匹配的字符不包括排除的字符</p>
+</li>
+<li><p>子表达式的编号按照<strong>开</strong>括号的出现先后顺序,从1开始.可以嵌套.嵌套的子表达式如果不希望分组,可以使用(?:…)来避免分组.</p>
+</li>
+</ul>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fw5aa8p7odj31kw0sgwj0.jpg" alt></p>
+<ul>
+<li>匹配中文</li>
+</ul>
+<p><code>[\u4e00-\u9fa5]</code></p>
+<ul>
+<li>常用量词对应的区间</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>常用量词</th>
+<th>{n,m}等价形式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>{0,}</td>
+<td>可能出现，也可能不出现，出现次数没有上限</td>
+</tr>
+<tr>
+<td>+</td>
+<td>{1,}</td>
+<td>至少出现次数为1，出现次数没有上线</td>
+</tr>
+<tr>
+<td>?</td>
+<td>{0,1}</td>
+<td>最多出现1次，有可能不出现（出现0次或1次）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>锚点</li>
+</ul>
+<p>锚点分为简单锚点和复杂锚点</p>
+<ul>
+<li>简单锚点  <code>^ $ \b ...</code></li>
+<li>复杂锚点 顺序环视,逆序环视…</li>
+</ul>
+<h1 id="AWK简单使用"><a href="#AWK简单使用" class="headerlink" title="AWK简单使用"></a>AWK简单使用</h1><p>## awk匹配CentOS ip</p>
+<p>文本是这个样子滴</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">eth0      Link encap:Ethernet  HWaddr 00:16:3E:00:16:4D</span><br><span class="line">          inet addr:10.16.198.247  Bcast:10.16.198.255  Mask:255.255.255.0</span><br><span class="line">          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1</span><br><span class="line">          RX packets:807720570 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">          TX packets:697989916 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:1000</span><br><span class="line">          RX bytes:182661116830 (170.1 GiB)  TX bytes:109220927259 (101.7 GiB)</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ifconfig eth0 |awk -F '[ :]+' 'NR==2&#123; print $4&#125;' #CentOS 6.9  </span><br><span class="line">ifconfig eth0|awk -F '[ ]+' 'NR==2 &#123;print $3&#125;'  #CentOS 7+</span><br></pre></td></tr></table></figure>
+<p>-F 就是指定分隔符 第一个就是空格或者<code>:</code> 后面的<code>+</code>指定数量，也就是多个空格。分割后ip在第四列第二行，所以NR==2就是指定行号。后面一个awk一样，只是在CentOS 7 上分隔符换成了纯空格。</p>
+<p><a href="https://coolshell.cn/articles/9070.html" target="_blank" rel="noopener">参考资料</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/others/" rel="tag"># others</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/29/Git笔记/" rel="next" title="Git 学习笔记">
+                <i class="fa fa-chevron-left"></i> Git 学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/15/testImage/" rel="prev" title="采取一种新的图片应用方式">
+                采取一种新的图片应用方式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="张俊">
+          <p class="site-author-name" itemprop="name">张俊</p>
+           
+              <p class="site-description motion-element" itemprop="description">过一种有价值的中产阶级生活</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">82</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ZJsnowman" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/zjsnowman" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/ZJsnowman/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-quora"></i>
+                  
+                    
+                      知乎
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#正则表达式是什么"><span class="nav-number">1.</span> <span class="nav-text">正则表达式是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用途"><span class="nav-number">2.</span> <span class="nav-text">用途</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本用法"><span class="nav-number">3.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意点"><span class="nav-number">4.</span> <span class="nav-text">注意点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用工具"><span class="nav-number">5.</span> <span class="nav-text">常用工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cheatsheet"><span class="nav-number">5.1.</span> <span class="nav-text">cheatsheet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试网站"><span class="nav-number">5.2.</span> <span class="nav-text">测试网站</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用正则"><span class="nav-number">6.</span> <span class="nav-text">常用正则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#提取文本中的数字"><span class="nav-number">6.1.</span> <span class="nav-text">提取文本中的数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匹配中文"><span class="nav-number">6.2.</span> <span class="nav-text">匹配中文</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#疑问点"><span class="nav-number">7.</span> <span class="nav-text">疑问点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#贪婪模式解释"><span class="nav-number">7.1.</span> <span class="nav-text">贪婪模式解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lookaround"><span class="nav-number">7.2.</span> <span class="nav-text">lookaround</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#精通正则表达式学习笔记"><span class="nav-number">8.</span> <span class="nav-text">精通正则表达式学习笔记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AWK简单使用"><span class="nav-number">9.</span> <span class="nav-text">AWK简单使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张俊</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://ZJsnowman.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://zjsnowman.com/2017/06/12/正则表达式学习笔记/';
+          this.page.identifier = '2017/06/12/正则表达式学习笔记/';
+          this.page.title = '正则表达式学习笔记';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ZJsnowman.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("1m1SVHmQhKszN3lTe3rKgo87-gzGzoHsz", "i9e5m0oHfrGz1EzsarxpYbh2");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

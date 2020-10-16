@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="数据分析,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="看见什么吃什么" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="数据可视化探索,这里主要使用的是 Tableau,Matplotlib,Seaborn">
+<meta name="keywords" content="数据分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据可视化">
+<meta property="og:url" content="http://zjsnowman.com/2018/01/05/数据可视化/index.html">
+<meta property="og:site_name" content="看见什么吃什么">
+<meta property="og:description" content="数据可视化探索,这里主要使用的是 Tableau,Matplotlib,Seaborn">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-24-044139.jpg">
+<meta property="og:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/blog/2018-12-22-Paper.%E7%B4%A0%E6%8F%8F.1.png">
+<meta property="og:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/blog/2019-01-14-120422.jpg">
+<meta property="og:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-24-044140.jpg">
+<meta property="og:updated_time" content="2019-10-21T02:55:51.582Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据可视化">
+<meta name="twitter:description" content="数据可视化探索,这里主要使用的是 Tableau,Matplotlib,Seaborn">
+<meta name="twitter:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-24-044139.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'AEDNVYBRXD',
+      apiKey: '8b0fd63b8531c6673fc8ec50b80429ef',
+      indexName: 'prod_blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zjsnowman.com/2018/01/05/数据可视化/">
+
+
+
+
+
+  <title>数据可视化 | 看见什么吃什么</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-104303218-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">看见什么吃什么</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zjsnowman.com/2018/01/05/数据可视化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张俊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="看见什么吃什么">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数据可视化</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-05T17:03:19+08:00">
+                2018-01-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/05/数据可视化/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/01/05/数据可视化/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/05/数据可视化/" class="leancloud_visitors" data-flag-title="数据可视化">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>数据可视化探索,这里主要使用的是 Tableau,Matplotlib,Seaborn<a id="more"></a></p>
+<h1 id="可视化基本介绍"><a href="#可视化基本介绍" class="headerlink" title="可视化基本介绍"></a>可视化基本介绍</h1><p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-24-044139.jpg" alt="工具金字塔"><br>工具需要在适用范围和生产力两方面有所权衡。使用那些适用范围更广的工具可以帮助你创建各种不同的可视化要求而不受各种定制需求的限制，然而，这类工具往往学习曲线会比较高，作图所花的时间也会比较长。在硬币的另一面，那些高生产力的工具，比如 Tableau，可以让你“无痛”作图，然而只限定在指定的一些可视化类型中。<br>上面所提到的权衡可以通过下面的这个金字塔所展示出来。金字塔的宽度代表工具的适用范围，高度代表工具的生产力，或者说使用起来有多方便。</p>
+<h1 id="可视化心得"><a href="#可视化心得" class="headerlink" title="可视化心得"></a>可视化心得</h1><p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/blog/2018-12-22-Paper.%E7%B4%A0%E6%8F%8F.1.png" alt="可视化模型"><br>在可视化的时候始终在脑中要有上面这样一个模型。</p>
+<ul>
+<li>对多个变量进行可视化时，如果变量的取值相差较大或者量纲不同，可以先进行变化。比如线性变化(归一化，标准化)或者对数变化。例如在雷达图中，如果线都糅合在一起，就需要进行变换</li>
+<li>针对多元数据</li>
+</ul>
+<h1 id="Tableau"><a href="#Tableau" class="headerlink" title="Tableau"></a>Tableau</h1><h2 id="维度与度量"><a href="#维度与度量" class="headerlink" title="维度与度量"></a>维度与度量</h2><p>维度以其本身形态显示在视图上，度量以聚合形式显示在视图上；<br>离散胶囊为蓝色，连续胶囊为绿色。</p>
+<h2 id="集"><a href="#集" class="headerlink" title="集"></a>集</h2><ul>
+<li>常亮集</li>
+<li>动态集 计算得出的集(会随着基础数据更改而更新)</li>
+<li>合并集 基于的维度不一致的两个集不能合并,基于动态集的合并集也是一个动态集</li>
+</ul>
+<p><a href="https://zhuanlan.zhihu.com/p/24378965" target="_blank" rel="noopener">集的使用以及和组的区别</a><br><a href="https://mp.weixin.qq.com/s/QsxwFrgBMlSgMKWIrmusjg" target="_blank" rel="noopener">集的五种用法</a></p>
+<p>集，Set：</p>
+<blockquote>
+<p>集合是一个数据的子集，在原始数据中，根据某种条件而划分出的数据子集</p>
+</blockquote>
+<p>组，Group：</p>
+<blockquote>
+<p>通过将大量维度成员组合到更高级别的类别中，来简化大量维度成员</p>
+</blockquote>
+<h2 id="Tableau各种文件类型"><a href="#Tableau各种文件类型" class="headerlink" title="Tableau各种文件类型"></a>Tableau各种文件类型</h2><p><code>.twb</code>,<code>.twbx</code>,<code>.hyper or .tde</code> 等</p>
+<p><a href="https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/help.html#environ_filesandfolders.html%3FTocPath%3D%25E5%2585%25A5%25E9%2597%25A8%25E6%258C%2587%25E5%258D%2597%7C%25E6%25B5%258F%25E8%25A7%2588%2520Tableau%2520%25E7%258E%25AF%25E5%25A2%2583%7C_____5" target="_blank" rel="noopener">具体用途参考官方文档</a></p>
+<h2 id="表计算"><a href="#表计算" class="headerlink" title="表计算"></a>表计算</h2><ul>
+<li><p>表计算是在 Tableau 本地完成的</p>
+<p>  <a href="https://www.tableau.com/zh-cn/learn/training" target="_blank" rel="noopener">官方学习视频</a></p>
+<p>  <a href="https://www.tableau.com/zh-cn/about/blog/2017/2/top-10-tableau-table-calculations-65417" target="_blank" rel="noopener">学习链接</a></p>
+</li>
+</ul>
+<h2 id="聚合与解聚"><a href="#聚合与解聚" class="headerlink" title="聚合与解聚"></a>聚合与解聚</h2><p><a href="https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/calculations_aggregation_disaggregatingdata.html" target="_blank" rel="noopener">如何截距,以散点图查看数据的时候,解聚数据会很有用,可以方便查看数据形状和快速识别利离群点</a></p>
+<p><a href="https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/calculations_aggregation_disaggregatingdata.html" target="_blank" rel="noopener">解释 Tableau 的聚合和解聚,默认是聚合的,一般是 sum</a></p>
+<h2 id="优化工作"><a href="#优化工作" class="headerlink" title="优化工作"></a>优化工作</h2><p><a href="https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/help.htm#performance_tips.html" target="_blank" rel="noopener">参考官方实践</a></p>
+<h2 id="上下文筛选器"><a href="#上下文筛选器" class="headerlink" title="上下文筛选器"></a>上下文筛选器</h2><p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/blog/2019-01-14-120422.jpg" alt="tableau 优先级"></p>
+<p>tableau 中操作是有一定的优先级顺序，具体到筛选器，分为维度筛选器，度量筛选器。维度在度量之前很好理解，这里重点分析一下维度筛选器，多个维度筛选器之间不同的顺序会导致不同的结果。<a href="https://onlinehelp.tableau.com/current/pro/desktop/zh-cn/order_of_operations.htm" target="_blank" rel="noopener">详细可以点击查看</a>。另外用上下文筛选器还能提高性能，一般在TopN问题中用的比较多。</p>
+<h2 id="地图"><a href="#地图" class="headerlink" title="地图"></a>地图</h2><h3 id="自定义背景地图的三种方法"><a href="#自定义背景地图的三种方法" class="headerlink" title="自定义背景地图的三种方法"></a>自定义背景地图的三种方法</h3><ol>
+<li>tms文件 网上找</li>
+<li>wms 服务器( <a href="http://ows.terrestris.de/osm/service" target="_blank" rel="noopener">http://ows.terrestris.de/osm/service</a> )</li>
+<li>mapbox地图服务器(<a href="https://www.mapbox.com/" target="_blank" rel="noopener">https://www.mapbox.com/</a>) </li>
+</ol>
+<p><a href="http://geojson.io" target="_blank" rel="noopener">http://geojson.io</a> 生成shape文件</p>
+<p><strong>需要的时候可以研究一下上述三种方法,都是可行的.</strong></p>
+<h3 id="自定义坐标图"><a href="#自定义坐标图" class="headerlink" title="自定义坐标图"></a>自定义坐标图</h3><p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-24-044140.jpg" alt="自定义背景图"></p>
+<p>这种需要自行制作一下这种背景图.可以使用工具网站(<a href="http://powertoolsfortableau.com/" target="_blank" rel="noopener">http://powertoolsfortableau.com/</a>)</p>
+<p><strong>这种也是需要的时候研究一下.</strong></p>
+<h3 id="自己带经纬度"><a href="#自己带经纬度" class="headerlink" title="自己带经纬度"></a>自己带经纬度</h3><p>自己数据里面带经纬度数据也是可以绘制地图数据的,注意一点.这里经纬端必须正确的放到 Tableau 行列里面.放反了绘制不出来.<code>longitude</code>放到行.<code>latitude</code> 放到列</p>
+<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><p><a href="http://www.gpsspg.com/xgeocoding/" target="_blank" rel="noopener">经纬度转换工具</a></p>
+<h2 id="Tableau-Server"><a href="#Tableau-Server" class="headerlink" title="Tableau Server"></a>Tableau Server</h2><p><a href="https://mp.weixin.qq.com/s/9SLwd0M0JaQU1oLTxSphrA" target="_blank" rel="noopener">通过tableau server 来实现全屏展示</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzA5MTU3NDI2NQ==&amp;mid=501985219&amp;idx=1&amp;sn=06274e3e28146548eaa8365bbe0018a2&amp;chksm=086555553f12dc43fae57be520035a967a358e86117aef4a44217cb46fe27903b3cfec31de21&amp;mpshare=1&amp;scene=1&amp;srcid=0927smGzT8MV7jZ4lDFnTXZN&amp;rd2werd=1#wechat_redirect" target="_blank" rel="noopener">Tableau Server 备份</a></p>
+<h2 id="Tableau-数据融合-Data-Blending"><a href="#Tableau-数据融合-Data-Blending" class="headerlink" title="Tableau 数据融合(Data Blending)"></a>Tableau 数据融合(Data Blending)</h2><ul>
+<li>* 表示blend 的时候有多个匹配</li>
+<li>blend 在较低维度上可以推出较高维度的视图</li>
+</ul>
+<h2 id="Tableau-连接-MongoDB"><a href="#Tableau-连接-MongoDB" class="headerlink" title="Tableau 连接 MongoDB"></a>Tableau 连接 MongoDB</h2><p>1.安装BI Connector <a href="https://docs.mongodb.com/bi-connector/master/tutorial/install-bi-connector-macos/" target="_blank" rel="noopener">参考官网</a></p>
+<p>2.从 Tableau 连接 <a href="https://docs.mongodb.com/bi-connector/master/connect/tableau/" target="_blank" rel="noopener">参考官网</a></p>
+<h2 id="License-迁移"><a href="#License-迁移" class="headerlink" title="License 迁移"></a>License 迁移</h2><p><a href="https://mp.weixin.qq.com/s?__biz=MzA5MTU3NDI2NQ==&amp;mid=501982755&amp;idx=1&amp;sn=fb3eee752c82053f9a0b506debf38af2&amp;chksm=08655cb53f12d5a369d168e6298dc2e97d8b16dd7e15dbe047d7fdd680e104585d1ff9764cba&amp;mpshare=1&amp;scene=1&amp;srcid=0927lHWWutHAzDRUTabPWcGy&amp;rd2werd=1#wechat_redirect" target="_blank" rel="noopener">参考举个栗子</a></p>
+<h2 id="通知"><a href="#通知" class="headerlink" title="通知"></a>通知</h2><p><a href="https://github.com/tableau/VizAlerts" target="_blank" rel="noopener">https://github.com/tableau/VizAlerts</a> 一个可以管理邮件的开源项目(还没研究)</p>
+<h2 id="Tableau-大数据实时展示"><a href="#Tableau-大数据实时展示" class="headerlink" title="Tableau 大数据实时展示"></a>Tableau 大数据实时展示</h2><p>Tableau 本身支持 实时和数据提取两种方式来进行数据连接</p>
+<ul>
+<li>实时的主要的压力在于数据库,</li>
+<li>数据提取的话是把数据 load 到本地来,存成<code>hyper</code>格式.这样压力就都在 Tableau 本身了. 小数量可以使用实时连接,大数据量的话推荐用数据提取的方式,最高可支持10亿的数据量.但是用后者的话实际是不是一个实时的,是每隔一个时间段从远端提取数据来刷新很低的数据,这个频率最快是15分钟.如果上述两种方案都不能满足的话.可以使用 Tableau 官方推荐的两种方法,可以做到近乎实时.</li>
+</ul>
+<p>1.<a href="https://www.tableau.com/zh-cn/node/74656" target="_blank" rel="noopener">Vertica,商业解决方案,直接用</a></p>
+<p>2.<a href="http://kylin.apache.org/cn/docs23/tutorial/tableau.html" target="_blank" rel="noopener">Kylin,需要开发,开源免费</a></p>
+<h2 id="LOD详解"><a href="#LOD详解" class="headerlink" title="LOD详解"></a>LOD详解</h2><p><a href="https://yupengwu.com/2018/09/10/tableau_lod_1/" target="_blank" rel="noopener">参考吴玉朋的LOD详解</a><br><a href="https://yupengwu.com/2018/11/26/tableau_lod_5/" target="_blank" rel="noopener">15大详细级别表达式-深度解读</a><br><a href="https://www.tableau.com/zh-cn/about/blog/LOD-expressions" target="_blank" rel="noopener">15大详细级别官方中文</a></p>
+<h1 id="Matplotlib"><a href="#Matplotlib" class="headerlink" title="Matplotlib"></a>Matplotlib</h1><p><a href="https://realpython.com/python-matplotlib-guide/" target="_blank" rel="noopener">https://realpython.com/python-matplotlib-guide/</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据分析/" rel="tag"># 数据分析</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/27/Docker-学习笔记/" rel="next" title="Docker 学习笔记">
+                <i class="fa fa-chevron-left"></i> Docker 学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/09/ELK简介/" rel="prev" title="ELK简介">
+                ELK简介 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="张俊">
+          <p class="site-author-name" itemprop="name">张俊</p>
+           
+              <p class="site-description motion-element" itemprop="description">过一种有价值的中产阶级生活</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">82</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ZJsnowman" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/zjsnowman" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/ZJsnowman/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-quora"></i>
+                  
+                    
+                      知乎
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#可视化基本介绍"><span class="nav-number">1.</span> <span class="nav-text">可视化基本介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#可视化心得"><span class="nav-number">2.</span> <span class="nav-text">可视化心得</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tableau"><span class="nav-number">3.</span> <span class="nav-text">Tableau</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#维度与度量"><span class="nav-number">3.1.</span> <span class="nav-text">维度与度量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集"><span class="nav-number">3.2.</span> <span class="nav-text">集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tableau各种文件类型"><span class="nav-number">3.3.</span> <span class="nav-text">Tableau各种文件类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表计算"><span class="nav-number">3.4.</span> <span class="nav-text">表计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#聚合与解聚"><span class="nav-number">3.5.</span> <span class="nav-text">聚合与解聚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化工作"><span class="nav-number">3.6.</span> <span class="nav-text">优化工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上下文筛选器"><span class="nav-number">3.7.</span> <span class="nav-text">上下文筛选器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#地图"><span class="nav-number">3.8.</span> <span class="nav-text">地图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义背景地图的三种方法"><span class="nav-number">3.8.1.</span> <span class="nav-text">自定义背景地图的三种方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义坐标图"><span class="nav-number">3.8.2.</span> <span class="nav-text">自定义坐标图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自己带经纬度"><span class="nav-number">3.8.3.</span> <span class="nav-text">自己带经纬度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工具"><span class="nav-number">3.8.4.</span> <span class="nav-text">工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tableau-Server"><span class="nav-number">3.9.</span> <span class="nav-text">Tableau Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tableau-数据融合-Data-Blending"><span class="nav-number">3.10.</span> <span class="nav-text">Tableau 数据融合(Data Blending)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tableau-连接-MongoDB"><span class="nav-number">3.11.</span> <span class="nav-text">Tableau 连接 MongoDB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#License-迁移"><span class="nav-number">3.12.</span> <span class="nav-text">License 迁移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通知"><span class="nav-number">3.13.</span> <span class="nav-text">通知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tableau-大数据实时展示"><span class="nav-number">3.14.</span> <span class="nav-text">Tableau 大数据实时展示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LOD详解"><span class="nav-number">3.15.</span> <span class="nav-text">LOD详解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Matplotlib"><span class="nav-number">4.</span> <span class="nav-text">Matplotlib</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张俊</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://ZJsnowman.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://zjsnowman.com/2018/01/05/数据可视化/';
+          this.page.identifier = '2018/01/05/数据可视化/';
+          this.page.title = '数据可视化';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ZJsnowman.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("1m1SVHmQhKszN3lTe3rKgo87-gzGzoHsz", "i9e5m0oHfrGz1EzsarxpYbh2");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

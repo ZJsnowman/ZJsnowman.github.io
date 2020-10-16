@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="看见什么吃什么" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="对一些常用的数据术语做一个解释">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见数据挖掘术语解释">
+<meta property="og:url" content="http://zjsnowman.com/2018/03/29/常见机器学习概念/index.html">
+<meta property="og:site_name" content="看见什么吃什么">
+<meta property="og:description" content="对一些常用的数据术语做一个解释">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-12-142751.png">
+<meta property="og:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-12-142919.png">
+<meta property="og:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-12-143958.png">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcgy1ftg4q7ypwxj30zw0pwq6b.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcgy1ftgh98tev8j312a0p20v9.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcgy1ftghamuas3j31bk0owdj0.jpg">
+<meta property="og:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-28-090644.png">
+<meta property="og:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-28-082747.png">
+<meta property="og:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-28-083109.png">
+<meta property="og:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-29-084239.png">
+<meta property="og:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-09-12-123645.png">
+<meta property="og:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-09-12-124047.png">
+<meta property="og:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-11-01-091600.png">
+<meta property="og:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-11-01-092324.png">
+<meta property="og:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-11-01-092340.png">
+<meta property="og:updated_time" content="2019-10-23T10:16:26.006Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常见数据挖掘术语解释">
+<meta name="twitter:description" content="对一些常用的数据术语做一个解释">
+<meta name="twitter:image" content="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-12-142751.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'AEDNVYBRXD',
+      apiKey: '8b0fd63b8531c6673fc8ec50b80429ef',
+      indexName: 'prod_blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://zjsnowman.com/2018/03/29/常见机器学习概念/">
+
+
+
+
+
+  <title>常见数据挖掘术语解释 | 看见什么吃什么</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-104303218-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">看见什么吃什么</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://zjsnowman.com/2018/03/29/常见机器学习概念/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张俊">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="看见什么吃什么">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">常见数据挖掘术语解释</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-29T09:50:01+08:00">
+                2018-03-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/29/常见机器学习概念/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/29/常见机器学习概念/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/03/29/常见机器学习概念/" class="leancloud_visitors" data-flag-title="常见数据挖掘术语解释">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>对一些常用的数据术语做一个解释<a id="more"></a></p>
+<h1 id="评判回归好坏的几个名词SSE-MSE-RMSE-R-square"><a href="#评判回归好坏的几个名词SSE-MSE-RMSE-R-square" class="headerlink" title="评判回归好坏的几个名词SSE,MSE,RMSE,R-square"></a>评判回归好坏的几个名词SSE,MSE,RMSE,R-square</h1><p>SSE(误差平方和)：Sum Squared Error<br>MSE(均方误差)：Mean squared error<br>RMSE(均方根、标准差)：Root mean squared error<br>R-square(确定系数)：Coefficient of determination</p>
+<p>一、SSE(误差平方和)<br>该统计参数计算的是拟合数据和原始数据对应点的误差的平方和，计算公式如下</p>
+<script type="math/tex; mode=display">SSE=\sum_{i=1}^{n}(y_{i}-f(x_{i}))^2</script><p>SSE越接近于0，说明模型选择和拟合更好，数据预测也越成功。接下来的MSE和RMSE因为和SSE是同出一宗，所以效果一样</p>
+<p>二、MSE(均方误差) Mean Squared Error<br>该统计参数是预测数据和原始数据对应点误差的平方和的均值，也就是SSE/n，和SSE没有太大的区别，计算公式如下</p>
+<script type="math/tex; mode=display">MSE=\frac{1}{n}\sum_{i=1}^{n}(y_{i}-f(x_{i}))^2</script><p>三、RMSE(根均方误差)  Root Mean Squared Error<br>该统计参数，也叫回归系统的拟合标准差，是MSE的平方根，就算公式如下</p>
+<script type="math/tex; mode=display">RMSE=\sqrt{MSE}=\sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_{i}-f(x_{i}))^2}</script><p><strong>这里RMSE只是为了转换一下量纲,让其和y保持一致</strong></p>
+<p>四. MAE 也是一个用来评判回归好坏的一个标准<br>MAE(Mean Absolute Error)</p>
+<script type="math/tex; mode=display">MAE=\frac{1}{n}\sum_{i=1}^{n}\left | (y_{i}-f(x_{i}) \right |</script><p>这里会发现MAE和RMSE的值不一样,RMSE有放大预测结果和真是结果较大误差的趋势,因为RMSE内部有去平方的操作.误差大的会被平方操作放大.所以相比较MAE而言,优化RMSE更加具有意义.他会重点缩小预测值和真实值的较大误差.</p>
+<p>在这之前，我们所有的误差参数都是基于预测值(y_hat)和原始值(y)之间的误差(即点对点)。从下面开始是所有的误差都是相对原始数据平均值(y_ba)而展开的(即点对全)!!!</p>
+<p>四、R-square(决定系数)</p>
+<p>RMSE或者MAE 也好.当我们做出一个模型,作用在预测房产数据是5万,预测分数是10分,这个时候无法判断这个模型的好坏.是预测房产价格好,还是预测分数好,因为这两个东西是不同种类的,所以这个时候就需要引入R-square.<br>在讲确定系数之前，我们需要介绍另外两个参数SSR和SST，因为确定系数就是由它们两个决定的<br>(1)SSR：Sum of squares of the regression，即预测数据与原始数据均值之差的平方和，公式如下</p>
+<script type="math/tex; mode=display">SSR=\sum_{i=1}^{n}(y_i-\bar{y})^2</script><p>(2)SST：Total sum of squares，即原始数据和均值之差的平方和，公式如下</p>
+<script type="math/tex; mode=display">SST=\sum_{i=1}^{n}(f_i-\bar{y})^2</script><p>细心的网友会发现，SST=SSE+SSR，呵呵只是一个有趣的问题。而我们的“确定系数”是定义为SSR和SST的比值，故</p>
+<script type="math/tex; mode=display">R-Square=\frac{SSR}{SST}</script><p>其实“确定系数”是通过数据的变化来表征一个拟合的好坏。由上面的表达式可以知道“确定系数”的正常取值范围为[0 1]，越接近1，表明方程的变量对y的解释能力越强，这个模型对数据拟合的也较好</p>
+<p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-12-142751.png" alt></p>
+<p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-12-142919.png" alt></p>
+<p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-12-143958.png" alt></p>
+<h1 id="超参数和模型参数"><a href="#超参数和模型参数" class="headerlink" title="超参数和模型参数"></a>超参数和模型参数</h1><p><img src="https://ws1.sinaimg.cn/large/006tKfTcgy1ftg4q7ypwxj30zw0pwq6b.jpg" alt></p>
+<h1 id="机器学习算法中距离和相似性度量方法"><a href="#机器学习算法中距离和相似性度量方法" class="headerlink" title="机器学习算法中距离和相似性度量方法"></a>机器学习算法中距离和相似性度量方法</h1><p><a href="http://www.cnblogs.com/daniel-D/p/3244718.html" target="_blank" rel="noopener">参考链接</a></p>
+<h1 id="网格搜索"><a href="#网格搜索" class="headerlink" title="网格搜索"></a>网格搜索</h1><p>网格搜索是 sklean 提供的一种方便进行超参数选择的方法.因为超参数的存在,所以我们最好的办法是遍历所有超参数的组合.但是很多时候不同的组合之间存在依赖关系,比如在 KNN 算法中,当<code>weights</code>为<code>uniform</code>的时候,是不需要对超参数 p(闵可夫斯基距离)进行遍历的.只有<code>weights</code>为<code>distance</code>的时候才需要遍历.所以 sklearn专门提供了一个方法来解决这个问题.</p>
+<h1 id="特征缩放"><a href="#特征缩放" class="headerlink" title="特征缩放"></a>特征缩放</h1><p><img src="https://ws1.sinaimg.cn/large/006tKfTcgy1ftgh98tev8j312a0p20v9.jpg" alt><br><img src="https://ws3.sinaimg.cn/large/006tKfTcgy1ftghamuas3j31bk0owdj0.jpg" alt></p>
+<p><a href="https://www.zhihu.com/question/20455227" target="_blank" rel="noopener">归一化和标准化的区别</a></p>
+<p>一般情况下优先标准化.在对输出有要求时再尝试别的方法，如归一化或者更加复杂的方法</p>
+<h2 id="最小二乘"><a href="#最小二乘" class="headerlink" title="最小二乘"></a>最小二乘</h2><p>这个最小二乘最初是由日本人翻译的.英语是<code>least square method</code>,中文也就这么稀里糊涂的借用过来了.简直无语,根本无法理解.直接看英语非常好理解.下次要在碰到这种无法理解的定义也要吸取教训直接看英语.另外值得一提的是绝对值那个叫最小一乘,英文叫<code>Least absolute deviations</code><br><a href="https://en.wikipedia.org/wiki/Least_squares" target="_blank" rel="noopener">最小二乘英文解释</a><br><a href="https://en.wikipedia.org/wiki/Least_absolute_deviations" target="_blank" rel="noopener">最小一乘英文解释</a></p>
+<h2 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h2><p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-28-090644.png" alt><br><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-28-082747.png" alt></p>
+<p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-28-083109.png" alt></p>
+<p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-08-29-084239.png" alt></p>
+<p>为了加快运算速度才发明了随机梯度下降.当然也有坏处,具体可以参考下面的链接</p>
+<p><a href="https://blog.csdn.net/u012328159/article/details/80252012" target="_blank" rel="noopener">随机梯度下降,批量梯度下降以及小批量梯度下降法对比</a></p>
+<p><strong>使用梯度下降前需要先对数据做一个归一化</strong></p>
+<h1 id="分类模型评估"><a href="#分类模型评估" class="headerlink" title="分类模型评估"></a>分类模型评估</h1><p>当正负样本不均衡的时候单独查看准确率意义不大</p>
+<h2 id="查准率和查全率-召回率"><a href="#查准率和查全率-召回率" class="headerlink" title="查准率和查全率(召回率)"></a>查准率和查全率(召回率)</h2><p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-09-12-123645.png" alt></p>
+<h2 id="F1"><a href="#F1" class="headerlink" title="F1"></a>F1</h2><p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-09-12-124047.png" alt></p>
+<p>precision和recall的调和平均</p>
+<h2 id="峰度与偏度"><a href="#峰度与偏度" class="headerlink" title="峰度与偏度"></a>峰度与偏度</h2><p><a href="https://blog.csdn.net/xbmatrix/article/details/69360167" target="_blank" rel="noopener">https://blog.csdn.net/xbmatrix/article/details/69360167</a></p>
+<p><a href="https://support.minitab.com/zh-cn/minitab/18/help-and-how-to/statistics/basic-statistics/supporting-topics/data-concepts/how-skewness-and-kurtosis-affect-your-distribution/" target="_blank" rel="noopener">https://support.minitab.com/zh-cn/minitab/18/help-and-how-to/statistics/basic-statistics/supporting-topics/data-concepts/how-skewness-and-kurtosis-affect-your-distribution/</a></p>
+<p>这两个统计量都是参考正态分布来设置的.<br>偏度用来描绘样本分布相比正态分布来说,是左偏(zuo)还是右偏<br>峰度也是描绘样本分布相比正态分布来说,是厚尾(比正态低,比如Beta分布)还是瘦尾(比正态高,比如t分布)</p>
+<h2 id="毕达哥拉斯平均"><a href="#毕达哥拉斯平均" class="headerlink" title=" 毕达哥拉斯平均"></a> 毕达哥拉斯平均</h2><p><a href="https://zh.wikipedia.org/wiki/%E6%AF%95%E8%BE%BE%E5%93%A5%E6%8B%89%E6%96%AF%E5%B9%B3%E5%9D%87" target="_blank" rel="noopener">毕达哥拉斯平均</a>是算术平均,几何平均和调和平均的总称</p>
+<ul>
+<li>算术平均  不同数字之间存在 <strong>可加性</strong></li>
+<li>加权算术平均</li>
+<li>几何平均 不同数字之间存在  <strong>相乘的关系</strong>,比如复利</li>
+<li>调和平均 与算术平均和几何平均相比,调和平均更重视较小值</li>
+</ul>
+<h2 id="机器学习中距离-范数-L1-L2-正则"><a href="#机器学习中距离-范数-L1-L2-正则" class="headerlink" title="机器学习中距离,范数,L1/L2 正则"></a>机器学习中距离,范数,L1/L2 正则</h2><p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-11-01-091600.png" alt></p>
+<p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-11-01-092324.png" alt><br><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-11-01-092340.png" alt></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/10/算法/" rel="next" title="算法">
+                <i class="fa fa-chevron-left"></i> 算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/02/关系型数据库/" rel="prev" title="数据库">
+                数据库 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="张俊">
+          <p class="site-author-name" itemprop="name">张俊</p>
+           
+              <p class="site-description motion-element" itemprop="description">过一种有价值的中产阶级生活</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">82</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ZJsnowman" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/zjsnowman" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                    
+                      Twitter
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/ZJsnowman/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-quora"></i>
+                  
+                    
+                      知乎
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#评判回归好坏的几个名词SSE-MSE-RMSE-R-square"><span class="nav-number">1.</span> <span class="nav-text">评判回归好坏的几个名词SSE,MSE,RMSE,R-square</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#超参数和模型参数"><span class="nav-number">2.</span> <span class="nav-text">超参数和模型参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#机器学习算法中距离和相似性度量方法"><span class="nav-number">3.</span> <span class="nav-text">机器学习算法中距离和相似性度量方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网格搜索"><span class="nav-number">4.</span> <span class="nav-text">网格搜索</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#特征缩放"><span class="nav-number">5.</span> <span class="nav-text">特征缩放</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#最小二乘"><span class="nav-number">5.1.</span> <span class="nav-text">最小二乘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#梯度下降"><span class="nav-number">5.2.</span> <span class="nav-text">梯度下降</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分类模型评估"><span class="nav-number">6.</span> <span class="nav-text">分类模型评估</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查准率和查全率-召回率"><span class="nav-number">6.1.</span> <span class="nav-text">查准率和查全率(召回率)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#F1"><span class="nav-number">6.2.</span> <span class="nav-text">F1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#峰度与偏度"><span class="nav-number">6.3.</span> <span class="nav-text">峰度与偏度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#毕达哥拉斯平均"><span class="nav-number">6.4.</span> <span class="nav-text"> 毕达哥拉斯平均</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习中距离-范数-L1-L2-正则"><span class="nav-number">6.5.</span> <span class="nav-text">机器学习中距离,范数,L1/L2 正则</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张俊</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://ZJsnowman.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://zjsnowman.com/2018/03/29/常见机器学习概念/';
+          this.page.identifier = '2018/03/29/常见机器学习概念/';
+          this.page.title = '常见数据挖掘术语解释';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://ZJsnowman.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("1m1SVHmQhKszN3lTe3rKgo87-gzGzoHsz", "i9e5m0oHfrGz1EzsarxpYbh2");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
