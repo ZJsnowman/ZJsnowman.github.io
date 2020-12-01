@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zjsnowman.com/"/>
-  <updated>2020-11-30T08:59:01.910Z</updated>
+  <updated>2020-12-01T02:23:40.859Z</updated>
   <id>http://zjsnowman.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>管理不确定来绘制成功的蓝图</title>
+    <link href="http://zjsnowman.com/2020/12/01/%E7%AE%A1%E7%90%86%E4%B8%8D%E7%A1%AE%E5%AE%9A%E6%9D%A5%E7%BB%98%E5%88%B6%E6%88%90%E5%8A%9F%E7%9A%84%E8%93%9D%E5%9B%BE/"/>
+    <id>http://zjsnowman.com/2020/12/01/%E7%AE%A1%E7%90%86%E4%B8%8D%E7%A1%AE%E5%AE%9A%E6%9D%A5%E7%BB%98%E5%88%B6%E6%88%90%E5%8A%9F%E7%9A%84%E8%93%9D%E5%9B%BE/</id>
+    <published>2020-12-01T02:09:09.000Z</published>
+    <updated>2020-12-01T02:23:40.859Z</updated>
+    
+    <content type="html"><![CDATA[<p>在今天这个社会，做决定是一件让人不知所措且复杂的事情。那是因为你害怕两个事：不确定(你没有获得所有<br>信息)和不明确(最好的结果需要依赖解释)。去和不确定战斗你可以尝试去收集更多的信息。但是在面对不明确<br>的前提下做艰难的决定,你需要从你自己对成功的理解开始。深入思考然后回答问题-你最在意什么？如果你是<br>一个父母，培养好小孩对你意味这什么。是小孩的学业很好，还是和家庭关系很好，还是体育很好。你的回答<br>（取决于你的价值观）可以告诉你，要想的获得你要的你需要做什么。这种方式能够帮助你做决定。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在今天这个社会，做决定是一件让人不知所措且复杂的事情。那是因为你害怕两个事：不确定(你没有获得所有&lt;br&gt;信息)和不明确(最好的结果需要依赖解释)。去和不确定战斗你可以尝试去收集更多的信息。但是在面对不明确&lt;br&gt;的前提下做艰难的决定,你需要从你自己对成功的理解开始。深入思
+      
+    
+    </summary>
+    
+    
+    
+      <category term="管理小技巧" scheme="http://zjsnowman.com/tags/%E7%AE%A1%E7%90%86%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
   
   <entry>
     <title>向老板一样委托任务</title>
@@ -408,27 +432,6 @@
     </summary>
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>解密文章</title>
-    <link href="http://zjsnowman.com/2018/06/25/%E5%8A%A0%E5%AF%86%E6%96%87%E7%AB%A0/"/>
-    <id>http://zjsnowman.com/2018/06/25/%E5%8A%A0%E5%AF%86%E6%96%87%E7%AB%A0/</id>
-    <published>2018-06-25T04:03:26.000Z</published>
-    <updated>2019-10-21T02:55:51.581Z</updated>
-    
-    <content type="html"><![CDATA[<script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">方便查看</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> U2FsdGVkX1/B1ey/xlxpzg9LLcmCfs3hUc3+frAvuayQnBDo5bZ3SeU56UjCP+rNzbktJu2gB5HkgGI1ZY+VjeaChsJ7eZe7t1k7hSoOso/RCmiQ8Lzn5d3ixOpubPikOdb2x2hZKZ5Z8x+lS5xHA6O5w8YLw1fDHsTbxj1oaNHLK2/iuFLhj0Rgl3TpCKU3Q43/vN84e0p0whG+JXiD1B6j+w8Pswx52SwVmAJBbEP8nzBD5h6E0wNbia8ap7r5PIc7b84AWLlznGfJ7CcpwR7+vIhBpwAi/mP72AunuQ0nVRF4BD5bZbfh9NNKBaBgr+RGM8Y1yphpdJyVlJUT81Nlr7fWylyXWyF2KXGx9lE5lgrTAGv41XSpoASJcAcTJBsCLgbdKeDT/GCd876yvLr0NSBvyjp4irjvbBd/KV2NAQAhkmYH9m8RNEudg1jjngpw0zFmcnlnwmR5iwryt7OIsUva2R5ES6g4ENrLSfqYyuUoNi9kV6Prg9bYLBnAgUwyzhUHg38BmoOqt77iinnTJgj52z2EW4W/zPcHkdKnbRz105DrPruexQRuLjD5xMIDU33TV6rPPUVh/sanqxFqZ4sAw1E29ZSrkSSvmTM5ZN8Bs2nGPTpPyNcOXoR3dxdAzktEcoXubSAqk2Eolg== </div>]]></content>
-    
-    <summary type="html">
-    
-      一些不错的文章,暂时放到这
-    
-    </summary>
-    
-    
-    
-      <category term="加密" scheme="http://zjsnowman.com/tags/%E5%8A%A0%E5%AF%86/"/>
     
   </entry>
   
