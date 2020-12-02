@@ -137,53 +137,6 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="http://zjsnowman.com/2020/10/16/Resume/"/>
-    <id>http://zjsnowman.com/2020/10/16/Resume/</id>
-    <published>2020-10-16T02:25:34.327Z</published>
-    <updated>2020-11-27T04:33:08.708Z</updated>
-    
-    <content type="html"><![CDATA[<hr><p>title: Resume<br>date: 1993-10-16 10:25:34<br>tags:</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.overleaf.com/project/5f1d7cc4f165170001618609" target="_blank" rel="noopener">https://www.overleaf.com/project/5f1d7cc4f165170001618609</a><br><a href="https://github.com/hijiangtao/resume" target="_blank" rel="noopener">https://github.com/hijiangtao/resume</a><br><a href="https://github.com/ZJsnowman/resumex" target="_blank" rel="noopener">https://github.com/ZJsnowman/resumex</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;hr&gt;
-&lt;p&gt;title: Resume&lt;br&gt;date: 1993-10-16 10:25:34&lt;br&gt;tags:&lt;/p&gt;
-&lt;h2 id=&quot;参考&quot;&gt;&lt;a href=&quot;#参考&quot; class=&quot;headerlink&quot; title=&quot;参考&quot;&gt;&lt;/a&gt;参考&lt;/h2&gt;&lt;p&gt;&lt;a hre
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>AB 测试</title>
-    <link href="http://zjsnowman.com/2020/07/30/AB-%E6%B5%8B%E8%AF%95/"/>
-    <id>http://zjsnowman.com/2020/07/30/AB-%E6%B5%8B%E8%AF%95/</id>
-    <published>2020-07-30T10:01:46.000Z</published>
-    <updated>2020-10-16T02:37:36.315Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul><li><a href="https://www.zhihu.com/question/20045543" target="_blank" rel="noopener">什么是 AB测试</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;参考链接&quot;&gt;&lt;a href=&quot;#参考链接&quot; class=&quot;headerlink&quot; title=&quot;参考链接&quot;&gt;&lt;/a&gt;参考链接&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.zhihu.com/question/20045543&quot; target
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>Python 长宽表转换 </title>
     <link href="http://zjsnowman.com/2020/07/01/Python-%E9%95%BF%E5%AE%BD%E8%A1%A8%E8%BD%AC%E6%8D%A2/"/>
     <id>http://zjsnowman.com/2020/07/01/Python-%E9%95%BF%E5%AE%BD%E8%A1%A8%E8%BD%AC%E6%8D%A2/</id>
@@ -437,6 +390,46 @@
     </summary>
     
     
+    
+  </entry>
+  
+  <entry>
+    <title>运营数据分析</title>
+    <link href="http://zjsnowman.com/2018/10/08/%E8%BF%90%E8%90%A5%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
+    <id>http://zjsnowman.com/2018/10/08/%E8%BF%90%E8%90%A5%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</id>
+    <published>2018-10-08T14:18:21.000Z</published>
+    <updated>2019-10-21T02:55:51.587Z</updated>
+    
+    <content type="html"><![CDATA[<p>运营相关数据分析体系<a id="more"></a></p><h1 id="APP基础数据分析体系"><a href="#APP基础数据分析体系" class="headerlink" title="APP基础数据分析体系"></a>APP基础数据分析体系</h1><p><a href="http://www.niaogebiji.com/article-13835-1.html" target="_blank" rel="noopener">http://www.niaogebiji.com/article-13835-1.html</a></p><ul><li>用户规模和质量<ul><li>活跃用户,日活,周活,月活</li><li>新增商户,日增,周增,月增(衡量营销效果,关注留存)</li><li>用户构成,比如月活具体构成,回流,连续N月活跃</li><li>留存.次日,7日,14日以及30日留存率</li><li>每个用户活跃总天数</li></ul></li><li>参与度<ul><li>启动次数.一定周期内启动次数</li><li>使用时长</li><li>访问页面</li><li>使用时间间隔</li></ul></li><li>渠道分析</li><li><p>功能分析</p><ul><li>功能活跃</li><li>页面访问路径</li><li>漏斗模型</li></ul></li><li><p>用户属性分析</p><ul><li>终端设备</li><li>网络以及运营商</li><li>地域分析</li><li>用户画像分析</li></ul></li></ul><h1 id="数据运营十大数据分析方法"><a href="#数据运营十大数据分析方法" class="headerlink" title="数据运营十大数据分析方法"></a>数据运营十大数据分析方法</h1><p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fw8qgce159j30xc0isgn2.jpg" alt><br><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fw8qhg26zjj313k0n675d.jpg" alt><br>数据分析方法补充:</p><ul><li>优化建模 当设计到预测和分类的场景的时候,通过数据挖掘的手段可以处理这种需求</li></ul><h1 id="数据采集分析"><a href="#数据采集分析" class="headerlink" title="数据采集分析"></a>数据采集分析</h1><p><a href="https://zhuanlan.zhihu.com/p/21628977?refer=sangwf" target="_blank" rel="noopener">神策桑文峰对当前数据采集的一个精彩分析</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;运营相关数据分析体系
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>解密文章</title>
+    <link href="http://zjsnowman.com/2018/06/25/%E5%8A%A0%E5%AF%86%E6%96%87%E7%AB%A0/"/>
+    <id>http://zjsnowman.com/2018/06/25/%E5%8A%A0%E5%AF%86%E6%96%87%E7%AB%A0/</id>
+    <published>2018-06-25T04:03:26.000Z</published>
+    <updated>2019-10-21T02:55:51.581Z</updated>
+    
+    <content type="html"><![CDATA[<script src="/crypto-js.js"></script><script src="/mcommon.js"></script><h3 id="encrypt-message">方便查看</h3><link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"> <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script> <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> <div id="security"> <div> <div class="input-group"> <input type="text" class="form-control" aria-label="Enter the password." id="pass"/> <div class="input-group-btn"> <button type="button" class="btn btn-default" onclick="decryptAES()">Decrypt</button> </div> </div> </div> </div> <div id="encrypt-blog" style="display:none"> U2FsdGVkX19bWvgqq5EdR680d+Wez22GA29XsQhnNRxXQIUlLBBLHgiORckM4AUe+JgnwXwG6TvtzGNwv6Y5HU5gNXIrkPmndl67B0oojfFHBMf/pSW1geMitW9nxuue7ogX6e6PJZ+BkFQOy6ciKvShEkrQ/j2N09FzJZv2jW3nn3YWnc1eNsY0q8w4Db1hieXLNSfEr/L0HniWcpHUAWZZdTT2cSY8JYrVUdwRBa8XgzKTdDkrCJt/YFAYncIODKbu9gGRr1wLFlP4g6anphgxQKz20tb6pkd+j27etu9NJ0zaRA8WKRq8L/MsYfO169xtSb/FLY537tVw2QXMk3mvl+CBTr3sRx6b4yZ+2D50yP1QUN4Fp5sqJVX434Snm0lTlKCUFdotdQcZZYzZ2BLjP1eBduqQsP593HrWp4Vyj4j3Xi2/OkDi6WpoGXfpOAjOrFoWrqMK1l0+WaCFsJ0gZ9Nzh8kzFXEhxRR5S4XL5ums8b/UuW+VjSO661YRBPeNcVqc2ti3Fgv/YV6SCUos56jQUnPKp+JqqU7+s6/nfdVonIki5J3VAidKIzhECC4cRIceWE5Z3PhY2tbjAZC3hM+AZEHlm24K8nxrcE4MIsocWjz5+zLmUrDxAbCkP4Mpvcbt1sCrWbYb/Ef84w== </div>]]></content>
+    
+    <summary type="html">
+    
+      一些不错的文章,暂时放到这
+    
+    </summary>
+    
+    
+    
+      <category term="加密" scheme="http://zjsnowman.com/tags/%E5%8A%A0%E5%AF%86/"/>
     
   </entry>
   
