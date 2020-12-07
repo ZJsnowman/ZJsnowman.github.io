@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zjsnowman.com/"/>
-  <updated>2020-12-06T09:54:24.679Z</updated>
+  <updated>2020-12-07T09:40:56.850Z</updated>
   <id>http://zjsnowman.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>不要自我破坏导致精疲力尽</title>
+    <link href="http://zjsnowman.com/2020/12/07/%E4%B8%8D%E8%A6%81%E8%87%AA%E6%88%91%E7%A0%B4%E5%9D%8F%E5%AF%BC%E8%87%B4%E7%B2%BE%E7%96%B2%E5%8A%9B%E5%B0%BD/"/>
+    <id>http://zjsnowman.com/2020/12/07/%E4%B8%8D%E8%A6%81%E8%87%AA%E6%88%91%E7%A0%B4%E5%9D%8F%E5%AF%BC%E8%87%B4%E7%B2%BE%E7%96%B2%E5%8A%9B%E5%B0%BD/</id>
+    <published>2020-12-07T09:14:48.000Z</published>
+    <updated>2020-12-07T09:40:56.850Z</updated>
+    
+    <content type="html"><![CDATA[<p>有很多原因让你精疲力尽，有些不受我们控制，而有些却是我们自己不知不觉强加给自己的。当你身处其中的时候会觉得这些自我破坏的陷阱无法避免。但是好消息是我们可以通过识别不好的行为从而逃脱出来并积极改变。举个例子，你是否是一个老好人，对任何来找你的需求都说好？这种行为非常耗费精力。因此要设定界限，学会说不，保护你的时间和精力。或者你是否是一个完美主义者，经常被自己的标准压的喘不过气来。对自己更加宽容一点并且学会重视过程就像你重视正确的事情一样。你是否备受冒名顶替症候群的困扰，担心自己不合格然后试着去过度补偿?要时刻提醒自己你最大的成功和你取得的原因。自我破坏在我们每个人身上都有不同的体现.因此关注那些放大你压力的想法，感觉和行为，认识到你并非无能为力，也并非孤生一人。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;有很多原因让你精疲力尽，有些不受我们控制，而有些却是我们自己不知不觉强加给自己的。当你身处其中的时候会觉得这些自我破坏的陷阱无法避免。但是好消息是我们可以通过识别不好的行为从而逃脱出来并积极改变。举个例子，你是否是一个老好人，对任何来找你的需求都说好？这种行为非常耗费精力。
+      
+    
+    </summary>
+    
+    
+    
+      <category term="管理小技巧" scheme="http://zjsnowman.com/tags/%E7%AE%A1%E7%90%86%E5%B0%8F%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
   
   <entry>
     <title>让觉察称为你生活的一部分</title>
@@ -410,25 +434,6 @@
     <summary type="html">
     
       &lt;p&gt;操千曲而后晓声，观千剑而后识器
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>运营数据分析</title>
-    <link href="http://zjsnowman.com/2018/10/08/%E8%BF%90%E8%90%A5%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"/>
-    <id>http://zjsnowman.com/2018/10/08/%E8%BF%90%E8%90%A5%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</id>
-    <published>2018-10-08T14:18:21.000Z</published>
-    <updated>2019-10-21T02:55:51.587Z</updated>
-    
-    <content type="html"><![CDATA[<p>运营相关数据分析体系<a id="more"></a></p><h1 id="APP基础数据分析体系"><a href="#APP基础数据分析体系" class="headerlink" title="APP基础数据分析体系"></a>APP基础数据分析体系</h1><p><a href="http://www.niaogebiji.com/article-13835-1.html" target="_blank" rel="noopener">http://www.niaogebiji.com/article-13835-1.html</a></p><ul><li>用户规模和质量<ul><li>活跃用户,日活,周活,月活</li><li>新增商户,日增,周增,月增(衡量营销效果,关注留存)</li><li>用户构成,比如月活具体构成,回流,连续N月活跃</li><li>留存.次日,7日,14日以及30日留存率</li><li>每个用户活跃总天数</li></ul></li><li>参与度<ul><li>启动次数.一定周期内启动次数</li><li>使用时长</li><li>访问页面</li><li>使用时间间隔</li></ul></li><li>渠道分析</li><li><p>功能分析</p><ul><li>功能活跃</li><li>页面访问路径</li><li>漏斗模型</li></ul></li><li><p>用户属性分析</p><ul><li>终端设备</li><li>网络以及运营商</li><li>地域分析</li><li>用户画像分析</li></ul></li></ul><h1 id="数据运营十大数据分析方法"><a href="#数据运营十大数据分析方法" class="headerlink" title="数据运营十大数据分析方法"></a>数据运营十大数据分析方法</h1><p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fw8qgce159j30xc0isgn2.jpg" alt><br><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fw8qhg26zjj313k0n675d.jpg" alt><br>数据分析方法补充:</p><ul><li>优化建模 当设计到预测和分类的场景的时候,通过数据挖掘的手段可以处理这种需求</li></ul><h1 id="数据采集分析"><a href="#数据采集分析" class="headerlink" title="数据采集分析"></a>数据采集分析</h1><p><a href="https://zhuanlan.zhihu.com/p/21628977?refer=sangwf" target="_blank" rel="noopener">神策桑文峰对当前数据采集的一个精彩分析</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;运营相关数据分析体系
     
     </summary>
     
