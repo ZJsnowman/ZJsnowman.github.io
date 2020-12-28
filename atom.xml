@@ -345,6 +345,28 @@
   </entry>
   
   <entry>
+    <title>2018工作总结</title>
+    <link href="http://zjsnowman.com/2018/12/28/2018%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/"/>
+    <id>http://zjsnowman.com/2018/12/28/2018%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/</id>
+    <published>2018-12-28T14:17:44.000Z</published>
+    <updated>2020-12-28T14:23:27.596Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="2018-年度小结"><a href="#2018-年度小结" class="headerlink" title="2018 年度小结"></a>2018 年度小结</h1><p>三月份，在公司的支持下，我们这个小组成立,命名为大数据组，这里我还是要对这个名字做一些必要的解释，绝大部分人看到大数据，脑海里立马就是 Hadoop之类的工程名，从而会片面理解我们小组的职责。所以后来我专门总结了一些我们小组的职责，并贴在了小组wiki空间中。具体内容如下:利用(大) 数据分析为所有职场人员作出迅捷,高质,高效的决策,提供具有指导意义的洞察和可规模化的解决方案。目的就是为了告诉大家，我们不只是做数据工程，更重 要的是通过这些工程的手段解决实际问题，这些问题可以是研发层面的，也可以是产品，运营层面的，当然还有其他的，比如财务，客服等任何数据能够发 挥作用都是可以的。确定好职责范围已经要干的事以后，我和泽哥就可以撸起袖子了。</p><h2 id="第一步-搭建大数据平台"><a href="#第一步-搭建大数据平台" class="headerlink" title="第一步,搭建大数据平台"></a>第一步,搭建大数据平台</h2><p>我们这一套大数据平台是基于目前主流的Spark开发搭建的，所以前人有些遗留的东西基本没有用上，外加得结合我们公司实际情况针对性进行改造，所以前 期挑战还是很大的。比如日志问题，之前日志都是运维同意管理的，用的是ELK那一套，为了避免给业务方带来过高的改造成本，我们采取直接从 ElasticSearch取数的策略，发了些功夫研究如何将我们的大数据平台和ElasticSearch对接。版本问题，大数据平台涉及到组件比较多，不同组件之间都有各 自的版本，处理不当，最后根本跑不起来。调度问题，任务之间有依赖关系，传统的Crontab满不了，最终选型azkaban来解决调度问题,等等。</p><h2 id="第二步，对外开张营业"><a href="#第二步，对外开张营业" class="headerlink" title="第二步，对外开张营业"></a>第二步，对外开张营业</h2><p>立于研发部，最先能够帮助解决的问题自然就在研发部。陆陆续续接了不少活，具体包括:</p><ul><li>帮助安全部门找到盒伙人异常用户</li><li>帮助魔力盒来优化支付.</li><li>帮助智慧经营来优化推送.</li><li>帮助公司解决 TFS 问题</li><li>帮助改善好哒立牌性能问题</li><li>帮助魔力盒查找网络问题</li><li>帮助风控分析A/B测试结果</li><li>帮助运营部门进行广告统计</li></ul><p>由于公司数据基础不是很好，内部关联关系混乱，具体项目实施过程中时常会遇到问题，只能一点点和业务的人沟通，也带了很多人的不理解，毕竟也是增加了人家的工作量，外加我们新成立的小组也没太大的知名度，前期还是有不少阻碍的，这一点也给我们带来很大的苦恼。 另外一个值得总结的是，出于和风控团队的紧密联系，这中间很多风控的实施工作都是我们小组完成的，配合他们做了很多风控相关的探索。比如签购单问题，爬虫问题，各种模型问题，收获良多，不过后来卢雄走后，外加后续陆续忙碌起来，对那边的支持也是慢慢减少了。</p><h2 id="第三步，总结"><a href="#第三步，总结" class="headerlink" title="第三步，总结"></a>第三步，总结</h2><p>基于上面的一些具体项目的实施，我也在不断反思一些问题。第一是观念问题，盒子内部当时并没有数据驱动的意识，导致很多工作不受重视，进而影响具体实施。为此，一方面需要提高自身的沟通技巧，另一方面也开始着手准备宣传。中间其实我们是做了两次宣导的，只不过第一次的宣导不太成功，第一是来的人很有限(从这也能看出当时我们面临的困境)，第二刚开始我们手上案列太少，光讲具体技术很难打动人，虽说难，但还是有人选择信任我们，在这 也非常感谢李哥的安全团队和风控团队，在项目冷启动的时候给我们很多信任和支持。后续慢慢积累案例，在培训室面向全研发部(包括少量产品)做了第二次 宣讲，结合公司案列以及背后的具体技术给大家好好宣讲了一次，从最后掌声来说，效果应该还是不错的。至少后续有很多人嘴上始终挂着数据两字，这样 我们的目的也就达到了。 另外一个是效率问题，前期就我和泽哥，很多工作应付不过来，导致很多细节考虑不过来，外加大数据分析设计到流程也比较多，经常捉襟见肘。为此我们 提出要再新增一个小伙伴，陆陆续续面了一些人，原因众多，结果就是一个没来。好在公司新招了一批大学生，经过宣导，有4个左右的小伙伴主动想加入我 们小组，最后，董忠伟同志光荣加入了我们小组，算是解了燃眉之急。针对效率问题，我们还做了另外一个事，开始引进Tableau。原因有二，第一是因为数 据分析最后需要一个载体来呈现，Tableau足够高效能够完成这项工作，另外一个很重要的原因是自主分析，我们将分析结果放到tableau上以后，具体使用的人可以自行在上面分析，而不用向以前那样，都得来我座位上一个个问。</p><h2 id="第四步，扩展。"><a href="#第四步，扩展。" class="headerlink" title="第四步，扩展。"></a>第四步，扩展。</h2><p>前面我也说了，数据驱动的意义绝对不仅限于研发部，产品运营层面也是重点。新的领域就会有新的问题。第一我们小组全部是研发出生，对业务的理解是 很有限的。第二资源问题，原有产品运营相关的数据支撑都是BI部门来完成的，突然有新的力量加入，还是有很多误解的，最后是数据问题，我们的数据太 有限了。虽说有GrowingIO,但是数据也是在人家服务器上，且没法导出，更别说验证数据的完整性和准确性了。针对上面三个问题，我们也分别做了一些事 情。第一是业务问题，这里非常感谢BI的封江娟同学对我们大力支持，当然还有各个业务线的同事，比如李美慧同学，褚金龙同学对我们的大力支持，最后 特别感谢一下松哥，经常叫我们去他办公司讨论钱盒问题，放手让我们做了很多尝试。资源问题更多是领导来推送这个事，在此非常感谢盛哥和松哥的支持。最后一个问题，数据问题。这是一个难题，巧妇难为无米之炊，很多产品运营层面的分析，没有数据，根本无法数据驱动。这里开始引入神策，前期调研，内部宣讲，领导沟通，虽然历经磨难，但好事多磨，神策现在已经进入了采购阶段。最后还有一点特别说明一下，韩总从一开始对我们小组也是给予了 很大的支持，每次上来都会来我们这和我们沟通，问我们有什么困难，在此一并感谢，对于怒放团队的数据工作，我们也是一直尽心在做，后续也会如此。</p><h1 id="2019年计划"><a href="#2019年计划" class="headerlink" title="2019年计划"></a>2019年计划</h1><pre><code>- 神策引进，数据驱动产品运营- 数据平台进一步完善- 怒放项目数据规划实施- 公司级爬虫系统搭建</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;2018-年度小结&quot;&gt;&lt;a href=&quot;#2018-年度小结&quot; class=&quot;headerlink&quot; title=&quot;2018 年度小结&quot;&gt;&lt;/a&gt;2018 年度小结&lt;/h1&gt;&lt;p&gt;三月份，在公司的支持下，我们这个小组成立,命名为大数据组，这里我还是要对这个名字做一
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>特征工程</title>
     <link href="http://zjsnowman.com/2018/12/22/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/"/>
     <id>http://zjsnowman.com/2018/12/22/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/</id>
@@ -415,25 +437,6 @@
     <summary type="html">
     
       &lt;p&gt;Deep Learning!
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习经典案例学习</title>
-    <link href="http://zjsnowman.com/2018/10/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%85%B8%E6%A1%88%E4%BE%8B%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://zjsnowman.com/2018/10/29/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%85%B8%E6%A1%88%E4%BE%8B%E5%AD%A6%E4%B9%A0/</id>
-    <published>2018-10-29T02:30:12.000Z</published>
-    <updated>2019-10-21T03:18:22.580Z</updated>
-    
-    <content type="html"><![CDATA[<p>操千曲而后晓声，观千剑而后识器<a id="more"></a></p><h2 id="Kaggle-房价预测"><a href="#Kaggle-房价预测" class="headerlink" title="Kaggle 房价预测"></a>Kaggle 房价预测</h2><p><a href="https://www.kaggle.com/c/house-prices-advanced-regression-techniques" target="_blank" rel="noopener">题目</a></p><p><a href="https://mp.weixin.qq.com/s?__biz=MjM5ODU3OTIyOA==&amp;mid=2650664654&amp;idx=2&amp;sn=125a225281b8b3a170ba6908c9233713&amp;chksm=bec1d3bd89b65aab121ec0ef49a51a9a1567dfded9c4ebbae7134a74c1465cffa1de84a6003e&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">答案</a></p><p>总结:</p><h2 id="解决问题的框架"><a href="#解决问题的框架" class="headerlink" title="解决问题的框架"></a>解决问题的框架</h2><ul><li><p>理解问题：查看每个变量并且根据他们的意义和对问题的重要性进行哲学分析。</p></li><li><p>单因素研究：只关注因变量( SalePrice)，并且进行更深入的了解。</p></li><li><p>多因素研究：分析因变量和自变量之间的关系。</p></li><li><p>基础清洗：清洗数据集并且对缺失数据，异常值和分类数据进行一些处理。</p></li><li><p>检验假设：检查数据是否和多元分析方法的假设达到一致。</p></li></ul><h2 id="学习使用相关系数矩阵热力图"><a href="#学习使用相关系数矩阵热力图" class="headerlink" title="学习使用相关系数矩阵热力图"></a>学习使用相关系数矩阵热力图</h2><ul><li>看出Y和不同X之间的相关性</li><li>看出不同X之间的共轭性,也就是双胞胎特征,可以只用一个就可以了</li></ul><h2 id="确实值处理的方法"><a href="#确实值处理的方法" class="headerlink" title="确实值处理的方法"></a>确实值处理的方法</h2><ul><li>当超过 15% 的数据都缺失的时候，我们应该删掉相关变量且假设该变量并不存在(删除列)。</li><li>当某个特征缺失少量观察值,可以把相应的记录删掉(删除行)<br><br><a href="https://www.kaggle.com/pmarcelino/comprehensive-data-exploration-with-python" target="_blank" rel="noopener">Kaggle 原答案</a></li></ul><h2 id="O2O优惠券使用预测"><a href="#O2O优惠券使用预测" class="headerlink" title="O2O优惠券使用预测"></a>O2O优惠券使用预测</h2><p><a href="https://tianchi.aliyun.com/competition/introduction.htm?spm=5176.11409106.5678.1.41b26b27EWjjMo&amp;raceId=231593" target="_blank" rel="noopener">题目</a><br><a href="https://tianchi.aliyun.com/notebook/detail.html?spm=5176.8366600.0.0.2fb6311f90pu6X&amp;id=4796" target="_blank" rel="noopener">参考答案</a></p><p>总结:</p><p>- 这个是一个分类问题,确定好metric是AUC.理解什么是AUC</p><ul><li>这里提高AUC的关键是特征,所以好的特征工程(特征提取)非常重要.<br>确定好之后可以用模型融合来提高成绩</li></ul><p>- 再求AUC值得时候<br><code>y_score : array, shape = [n_samples] or [n_samples, n_classes]Target scores, can either be probability estimates of the positive class, confidence values, or non-thresholded measure of decisions (as returned by “decision_function” on some classifiers). For binary y_true, y_score is supposed to be the score of the class with greater label.</code><br>y可以用<code>decision_fuction</code>的返回值,也可以用<code>predict_proba</code>的返回值</p><h2 id="Kaggle官方机器学习教程"><a href="#Kaggle官方机器学习教程" class="headerlink" title="Kaggle官方机器学习教程"></a>Kaggle官方机器学习教程</h2><p><a href="https://www.kaggle.com/learn/machine-learning" target="_blank" rel="noopener">教程</a></p><p><a href="https://www.kaggle.com/dansbecker/handling-missing-values" target="_blank" rel="noopener">缺失值处理</a></p><ul><li>直接丢弃行或者列</li><li>补全,均值补全或者其他策略</li><li>对有缺失的列添加额外的列(是否缺失)来标识</li></ul><h2 id="天池比赛从0-1分享"><a href="#天池比赛从0-1分享" class="headerlink" title="天池比赛从0-1分享"></a>天池比赛从0-1分享</h2><p><a href="https://tianchi.aliyun.com/forum/videoStream.html?spm=5176.11817089.0.0.6e8143919ushgM&amp;postsId=5594#postsId=5594" target="_blank" rel="noopener">视频分享地址</a><br><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-11-19-112417.png" alt><br><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-11-19-112248.png" alt></p><p><img src="https://blog-image-1257302654.cos.ap-guangzhou.myqcloud.com/2018-11-19-112552.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;操千曲而后晓声，观千剑而后识器
     
     </summary>
     
